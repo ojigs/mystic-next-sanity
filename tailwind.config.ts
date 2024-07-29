@@ -8,6 +8,17 @@ export default {
       fontFamily: {
         sans: ["var(--font-inter)"],
       },
+      colors: {
+        primary: {
+          DEFAULT: "#ffffff",
+        },
+        secondary: {
+          DEFAULT: "000000",
+        },
+        accent: {
+          DEFAULT: "#ff0000",
+        },
+      }
     },
   },
   future: {
