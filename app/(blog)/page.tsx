@@ -23,6 +23,8 @@ import {
 import Image from "next/image";
 import ServicesSection from "./components/service-section";
 import TestimonialsSection from "./components/testimonial-section";
+import BlogSection from "./components/blog-section";
+import ContactSection from "./components/contact-section";
 
 function Intro(props: { title: string | null | undefined; description: any }) {
   const title = props.title || demo.title;
@@ -201,9 +203,9 @@ export default async function Page() {
             Featured Portfolio
           </h2>
 
-          <div className="flex flex-col md:flex-row items-center mb-12">
+          <div className="flex flex-col md:flex-row-reverse items-center mb-12">
             {/* Main featured image */}
-            <div className="w-full md:w-2/3 mb-8 md:mb-0 md:pr-8">
+            <div className="w-full md:w-2/3 mb-8 md:mb-0 md:pl-8">
               <div className="relative w-full h-[400px] lg:h-[600px]">
                 <Image
                   src="/wedding-1.webp"
@@ -269,6 +271,12 @@ export default async function Page() {
 
       {/* Testimonials section */}
       <TestimonialsSection />
+
+      {/* Blog Section */}
+      <BlogSection />
+
+      {/* Contact Section */}
+      <ContactSection />
 
       {/* <Intro title={settings?.title} description={settings?.description} />
       {heroPost ? (

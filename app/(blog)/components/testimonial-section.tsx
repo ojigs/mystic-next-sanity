@@ -26,7 +26,7 @@ export default async function TestimonialsSection() {
           </Suspense>
         </div>
       </div>
-      <div className="hidden lg:block">
+      <div className="hidden md:block">
         <div className="absolute testimonial-bg-1 overflow-hidden">
           <div className="relative w-full h-full">
             <Image

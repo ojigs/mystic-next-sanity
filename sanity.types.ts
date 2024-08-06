@@ -754,6 +754,44 @@ export type TestimonialsQueryResult = Array<{
     _type: "image";
   } | null;
 }>;
+// Variable: blogFeatureQuery
+// Query: *[_type == "blogPost"] | order(_createdAt desc) {  _id,  "title": coalesce(title, "Untitled"),  "slug": slug.current,  excerpt,  coverImage,  date,"author": select(  defined(author) => author->{"name": coalesce(name, "Anonymous"), picture},  {"name": "Anonymous"})}
+export type BlogFeatureQueryResult = Array<{
+  _id: string;
+  title: string | "Untitled";
+  slug: string | null;
+  excerpt: string | null;
+  coverImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  date: string | null;
+  author: {
+    name: "Anonymous";
+  } | {
+    name: string | "Anonymous";
+    picture: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    } | null;
+  } | null;
+}>;
 // Source: ./app/(blog)/posts/[slug]/page.tsx
 // Variable: postSlugs
 // Query: *[_type == "post"]{slug}

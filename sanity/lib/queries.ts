@@ -33,3 +33,15 @@ export const testimonialsQuery = groq`*[_type == "testimonial"] | order(_created
   review,
   clientImage
 }`;
+
+export const blogFeatureQuery = groq`*[_type == "blogPost"] | order(_createdAt desc) {
+  _id,
+  "title": coalesce(title, "Untitled"),
+  "slug": slug.current,
+  excerpt,
+  coverImage,
+  date,
+"author": select(
+  defined(author) => author->{"name": coalesce(name, "Anonymous"), picture},
+  {"name": "Anonymous"}
+)}`;

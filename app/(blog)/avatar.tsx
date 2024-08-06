@@ -2,6 +2,7 @@ import { Image } from "next-sanity/image";
 
 import type { Author } from "@/sanity.types";
 import { urlForImage } from "@/sanity/lib/utils";
+import { FaUser } from "react-icons/fa";
 
 interface Props {
   name: string;
@@ -10,7 +11,7 @@ interface Props {
 
 export default function Avatar({ name, picture }: Props) {
   return (
-    <div className="flex items-center text-xl">
+    <div className="flex items-center">
       {picture?.asset?._ref ? (
         <div className="mr-4 h-12 w-12">
           <Image
@@ -28,9 +29,9 @@ export default function Avatar({ name, picture }: Props) {
           />
         </div>
       ) : (
-        <div className="mr-1">By </div>
+        <FaUser className="w-12 h-12 mr-4 bg-gray-400 pt-2 text-gray-300 rounded-full" />
       )}
-      <div className="text-pretty text-xl font-bold">{name}</div>
+      <div className="text-pretty font-semibold">{name}</div>
     </div>
   );
 }
