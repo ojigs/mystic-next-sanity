@@ -1,3 +1,192 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* :root {
+  --swiper-navigation-color: #ff3535;
+  --swiper-pagination-color: #ff3535;
+} */
+
+html,
+body {
+  overflow-x: hidden;
+}
+.hamb {
+  position: relative;
+  margin-right: -0.625rem;
+  border-width: 0px;
+  background-color: transparent;
+  padding: 0;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.hamb .ham {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.hamb .ham {
+  height: 60px;
+  width: 60px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.hamb .ham .top {
+  stroke-dasharray: 40 160;
+}
+.hamb .ham .middle {
+  transform-origin: 50%;
+  stroke-dasharray: 40 142;
+}
+.hamb .ham .bottom {
+  transform-origin: 50%;
+  stroke-dasharray: 40 85;
+}
+.hamb .line {
+  fill: none;
+  stroke: white;
+  stroke-width: 5;
+  transition-duration: 0.3s;
+  stroke-linecap: round;
+}
+.hamb.active svg {
+  --tw-rotate: 45deg;
+  transform: rotate(var(--tw-rotate));
+}
+.hamb.active svg .top {
+  stroke-dashoffset: -64px;
+}
+.hamb.active svg .middle {
+  --tw-rotate: 90deg;
+  transform: rotate(var(--tw-rotate));
+}
+.hamb.active svg .bottom {
+  stroke-dashoffset: -64px;
+}
+.glowRed {
+  position: relative;
+}
+.glowRed::after {
+  display: block;
+  content: "";
+  background-image: url("/glow-red.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 589px;
+  height: 72px;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%);
+  opacity: 1;
+  transition: all 0.6s ease-in-out;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-resolution: 1.5dppx),
+  only screen and (min-resolution: 144dpi) {
+  .glowRed::after {
+    background-image: url("/glow-red@2x.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+.glowing-text {
+  color: #f2f2f2;
+  transition: 0.3s;
+  animation: glowing-text 5000ms infinite;
+  text-shadow:
+    0 0 10px rgb(255, 53, 53),
+    0 0 20px rgb(255, 53, 53),
+    0 0 40px rgb(255, 53, 53),
+    0 0 80px rgb(230, 53, 53),
+    0 0 120px rgb(255, 53, 53),
+    0 0 110px rgb(255, 53, 53);
+}
+/*Keyframes at which the text shadow changess*/
+@keyframes glowing-text {
+  20% {
+    text-shadow:
+      0 0 10px rgb(47, 0, 255),
+      0 0 20px rgb(47, 0, 255),
+      0 0 40px rgb(47, 0, 255),
+      0 0 80px rgb(47, 0, 255),
+      0 0 120px rgb(47, 0, 255),
+      0 0 110px rgb(47, 0, 255);
+  }
+  40% {
+    text-shadow:
+      0 0 10px rgb(60, 255, 0),
+      0 0 20px rgb(60, 255, 0),
+      0 0 40px rgb(60, 255, 0),
+      0 0 80px rgb(60, 255, 0),
+      0 0 120px rgb(60, 255, 0),
+      0 0 110px rgb(60, 255, 0);
+  }
+  60% {
+    text-shadow:
+      0 0 10px rgb(0, 204, 255),
+      0 0 20px rgb(0, 204, 255),
+      0 0 40px rgb(0, 204, 255),
+      0 0 80px rgb(0, 204, 255),
+      0 0 120px rgb(0, 204, 255),
+      0 0 110px rgb(0, 204, 255);
+  }
+  80% {
+    text-shadow:
+      0 0 10px rgb(255, 251, 0),
+      0 0 20px rgb(255, 251, 0),
+      0 0 40px rgb(255, 251, 0),
+      0 0 80px rgb(255, 251, 0),
+      0 0 120px rgb(255, 251, 0),
+      0 0 110px rgb(255, 251, 0);
+  }
+  100% {
+    text-shadow:
+      0 0 10px rgb(255, 0, 212),
+      0 0 20px rgb(255, 0, 212),
+      0 0 40px rgb(255, 0, 212),
+      0 0 80px rgb(255, 0, 212),
+      0 0 120px rgb(255, 0, 212),
+      0 0 110px rgb(255, 0, 212);
+  }
+}
+.masonry-container {
+  column-gap: 1rem;
+  column-count: 2;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .masonry-container {
+    column-count: 5;
+  }
+}
+.testimonial-bg-1 {
+  transform: scale(0.79, 0.79) translate(78.6835px, -101.544px);
+  left: -616px;
+  top: 152px;
+  width: 740px;
+  height: 460px;
+}
+@media (min-width: 1024px) {
+  .testimonial-bg-1 {
+    transform: scale(1, 1) translate(0px, 0px);
+    left: -516px;
+  }
+}

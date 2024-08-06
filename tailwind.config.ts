@@ -11,14 +11,16 @@ export default {
       colors: {
         primary: {
           DEFAULT: "#ffffff",
+          50: "#f2f2f2",
+          100: "#cccccc",
         },
         secondary: {
-          DEFAULT: "000000",
+          DEFAULT: "#000000",
         },
         accent: {
-          DEFAULT: "#ff0000",
+          DEFAULT: "#ff3535",
         },
-      }
+      },
     },
   },
   future: {

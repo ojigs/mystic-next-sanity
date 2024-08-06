@@ -26,3 +26,10 @@ export const postQuery = groq`*[_type == "post" && slug.current == $slug] [0] {
   content,
   ${postFields}
 }`;
+
+export const testimonialsQuery = groq`*[_type == "testimonial"] | order(_createdAt desc){
+  _id,
+  clientName,
+  review,
+  clientImage
+}`;
