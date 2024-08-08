@@ -18,6 +18,9 @@ const Footer = () => {
               <Link href="/" className="hover:text-accent">
                 Home
               </Link>
+              <Link href="/about-us" className="hover:text-accent">
+                About
+              </Link>
               <Link href="/portfolio" className="hover:text-accent">
                 Portfolio
               </Link>
@@ -66,7 +69,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mt-16 border-t border-primary-50 pt-8 text-sm">
+        <div className="mt-16 border-t border-gray-600 pt-8 text-sm">
           <p className="text-center">
             &copy; {new Date().getFullYear()} Mystic Film Works. All rights
             reserved.

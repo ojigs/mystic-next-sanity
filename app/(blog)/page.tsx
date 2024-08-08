@@ -95,8 +95,6 @@ export default async function Page() {
     sanityFetch<TestimonialsQueryResult>({ query: testimonialsQuery }),
   ]);
 
-  console.log("testimonials", testimonials);
-
   const weddingImages = [
     { src: "/wedding-2.jpg", alt: "Wedding ceremony" },
     { src: "/wedding-3.jpg", alt: "Wedding ceremony" },
@@ -125,7 +123,7 @@ export default async function Page() {
             We Bring Your Vision to Life with Expert Cinematography and
             Photography
           </p>
-          <button className="mt-10 px-12 py-3 bg-accent text-primary-50 rounded-lg text-lg">
+          <button className="mt-10 px-12 py-3 bg-accent hover:bg-opacity-75 transition-colors text-primary-50 rounded-lg text-lg">
             Book Now
           </button>
         </div>
@@ -188,7 +186,7 @@ export default async function Page() {
             </p>
             <Link
               href={"/about"}
-              className="bg-accent text-primary py-2 px-4 rounded transition duration-300"
+              className="bg-accent hover:bg-opacity-75 transition-colors text-primary py-2 px-4 rounded"
             >
               Learn More
             </Link>
@@ -239,7 +237,7 @@ export default async function Page() {
               </p>
               <Link
                 href="/portfolio/weddings"
-                className="inline-block bg-accent text-primary py-2 px-4 rounded transition duration-300"
+                className="inline-block bg-accent hover:bg-opacity-75 transition-colors text-primary py-2 px-4 rounded"
               >
                 View Wedding Portfolio
               </Link>

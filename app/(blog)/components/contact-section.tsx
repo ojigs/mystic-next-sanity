@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const ContactSection = () => {
   return (
-    <section className="relative bg-secondary py-16">
+    <section className="relative mt-16 bg-gradient-to-br from-secondary to-secondary-100 py-16">
       <div className="absolute inset-0 overflow-hidden">
         {/* Overlay Elements */}
         <div className="absolute top-10 left-10 w-32 h-32 bg-accent opacity-50 rounded-full"></div>

@@ -17,7 +17,7 @@ const Header = () => {
           <Link href="/">Mystic Films</Link>
         </div>
         <nav className="hidden md:flex space-x-12 text-sm">
-          <Link href="/about" className="hover:text-accent">
+          <Link href="/about-us" className="hover:text-accent">
             About
           </Link>
           <Link href="/portfolio" className="hover:text-accent">
@@ -58,7 +58,7 @@ const Header = () => {
         className={`md:hidden ${isOpen ? "block" : "hidden"} transition-all duration-300`}
       >
         <nav className="flex flex-col items-center space-y-8 py-8 px-6">
-          <Link href="/about" className="hover:text-accent">
+          <Link href="/about-us" className="hover:text-accent">
             About
           </Link>
           <Link href="/portfolio" className="hover:text-accent">

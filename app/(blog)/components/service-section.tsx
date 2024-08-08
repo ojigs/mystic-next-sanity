@@ -35,7 +35,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       <div>
         <Link
           href={link}
-          className="inline-block bg-accent text-primary text-center py-2 px-4 rounded transition duration-300"
+          className="inline-block bg-accent hover:bg-opacity-75 transition-colors text-primary text-center py-2 px-4 rounded"
         >
           Learn More
         </Link>

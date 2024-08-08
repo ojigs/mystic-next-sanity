@@ -45,7 +45,9 @@ export default function TestimonialsSlider({
         <SwiperSlide key={testimonial._id}>
           <div className="flex flex-col items-center p-6 rounded-lg shadow-md bg-secondary">
             <ClientAvatar picture={testimonial.clientImage} />
-            <p className="text-lg mb-8 text-center">{testimonial.review}</p>
+            <p className="text-lg mb-8 text-primary-100 text-center">
+              {testimonial.review}
+            </p>
             <h3 className="font-semibold text-accent">
               {testimonial.clientName}
             </h3>

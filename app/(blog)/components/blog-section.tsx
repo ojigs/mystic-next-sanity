@@ -12,8 +12,6 @@ export default async function BlogSection() {
     sanityFetch<BlogFeatureQueryResult>({ query: blogFeatureQuery }),
   ]);
 
-  console.log(blogPosts);
-
   return (
     <section className="bg-secondary py-16 overflow-hidden relative">
       <div className="px-8 max-w-6xl mx-auto">
