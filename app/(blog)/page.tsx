@@ -25,6 +25,7 @@ import ServicesSection from "./components/service-section";
 import TestimonialsSection from "./components/testimonial-section";
 import BlogSection from "./components/blog-section";
 import ContactSection from "./components/contact-section";
+import ButtonLink from "./button-link";
 
 function Intro(props: { title: string | null | undefined; description: any }) {
   const title = props.title || demo.title;
@@ -123,9 +124,12 @@ export default async function Page() {
             We Bring Your Vision to Life with Expert Cinematography and
             Photography
           </p>
-          <button className="mt-10 px-12 py-3 bg-accent hover:bg-opacity-75 transition-colors text-primary-50 rounded-lg text-lg">
+          <ButtonLink
+            href={"/contact"}
+            className="mt-10 px-12 py-3 bg-accent text-primary-50 rounded-lg text-lg"
+          >
             Book Now
-          </button>
+          </ButtonLink>
         </div>
       </section>
 
@@ -184,12 +188,9 @@ export default async function Page() {
               unique story. Our commitment to quality and attention to detail
               sets us apart in the industry.
             </p>
-            <Link
-              href={"/about"}
-              className="bg-accent hover:bg-opacity-75 transition-colors text-primary py-2 px-4 rounded"
-            >
+            <ButtonLink href={"/about"} className="bg-accent">
               Learn More
-            </Link>
+            </ButtonLink>
           </div>
         </div>
       </section>
@@ -235,12 +236,9 @@ export default async function Page() {
                 with carefully composed portraits that you'll treasure for a
                 lifetime.
               </p>
-              <Link
-                href="/portfolio/weddings"
-                className="inline-block bg-accent hover:bg-opacity-75 transition-colors text-primary py-2 px-4 rounded"
-              >
+              <ButtonLink href="/portfolio/weddings" className="bg-accent">
                 View Wedding Portfolio
-              </Link>
+              </ButtonLink>
             </div>
           </div>
 

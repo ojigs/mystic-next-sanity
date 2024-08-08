@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
+import ButtonLink from "../button-link";
 
 interface Service {
   title: string;
@@ -33,12 +33,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <p className="text-primary-100 mb-4">{description}</p>
       </div>
       <div>
-        <Link
-          href={link}
-          className="inline-block bg-accent hover:bg-opacity-75 transition-colors text-primary text-center py-2 px-4 rounded"
-        >
+        <ButtonLink href={link} className="bg-accent text-center">
           Learn More
-        </Link>
+        </ButtonLink>
       </div>
     </div>
   </div>

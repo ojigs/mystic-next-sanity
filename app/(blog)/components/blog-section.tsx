@@ -22,11 +22,11 @@ export default async function BlogSection() {
           Explore our <span className="glowing-text">latest</span> insights and
           stories
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
           {blogPosts.map((post: any) => (
             <div
               key={post._id}
-              className="bg-primary-100 text-secondary-100 shadow-lg rounded-lg overflow-hidden"
+              className="bg-primary-100 text-secondary-100 shadow-accent/40 shadow-lg rounded-lg overflow-hidden"
             >
               <Link href={`/blog/${post.slug}`}>
                 <CoverImage image={post.coverImage} priority={false} />
@@ -39,7 +39,7 @@ export default async function BlogSection() {
                     </span>
                   </Link>
                 </h3>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between gap-2 mb-4">
                   {post.author && (
                     <div className="">
                       <Avatar
@@ -49,7 +49,7 @@ export default async function BlogSection() {
                     </div>
                   )}
                   <div className="justify-end">
-                    <p className="text-xs">
+                    <p className="text-xs text-end">
                       <DateComponent dateString={post.date} />
                     </p>
                   </div>

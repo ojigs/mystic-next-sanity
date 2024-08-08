@@ -6,10 +6,10 @@ import {
   FaHandshake,
   FaInstagram,
   FaPaintBrush,
-  FaStar,
   FaUsers,
 } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
+import ButtonLink from "../button-link";
 
 interface TeamMember {
   name: string;
@@ -80,12 +80,9 @@ const AboutPage = () => {
           <p className="text-lg text-primary-50 mb-8">
             We Capture Life’s Most Precious Moments
           </p>
-          <Link
-            href="/contact"
-            className="bg-accent hover:bg-opacity-75 transition-colors text-primary py-2 px-8 rounded"
-          >
+          <ButtonLink href="/contact" className="bg-accent">
             Get in Touch
-          </Link>
+          </ButtonLink>
         </div>
       </section>
 
@@ -310,17 +307,14 @@ const AboutPage = () => {
       {/* Call to Action Section */}
       <section className="bg-gradient-to-br from-secondary to-secondary-100 py-16">
         <div className="container mx-auto text-center text-primary">
-          <h2 className="text-3xl font-bold mb-4">Join Us on Our Journey</h2>
+          <h2 className="text-3xl font-bold mb-4">Be a Part of Our Journey</h2>
           <p className="text-lg mb-8 text-primary-100">
             Interested in working with us? Reach out to learn more about our
             services and team.
           </p>
-          <Link
-            href="/contact"
-            className="bg-accent hover:bg-opacity-75 transition-colors text-primary py-2 px-4 rounded"
-          >
+          <ButtonLink href="/contact" className="bg-accent">
             Contact Us
-          </Link>
+          </ButtonLink>
         </div>
       </section>
     </div>
