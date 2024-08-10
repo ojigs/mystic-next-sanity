@@ -188,7 +188,7 @@ export default async function Page() {
               unique story. Our commitment to quality and attention to detail
               sets us apart in the industry.
             </p>
-            <ButtonLink href={"/about"} className="bg-accent">
+            <ButtonLink href={"/about-us"} className="bg-accent">
               Learn More
             </ButtonLink>
           </div>

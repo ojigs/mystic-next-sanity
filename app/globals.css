@@ -102,7 +102,7 @@ body {
     background-size: 100% 100%;
   }
 }
-/* .glowing-text {
+.glowing-text {
   color: #f2f2f2;
   transition: 0.3s;
   animation: glowing-text 5000ms infinite;
@@ -113,7 +113,7 @@ body {
     0 0 80px rgb(230, 53, 53),
     0 0 120px rgb(255, 53, 53),
     0 0 110px rgb(255, 53, 53);
-} */
+}
 @keyframes glowing-text {
   20% {
     text-shadow:
@@ -218,4 +218,50 @@ body {
   .testimonial-bg-3 {
     left: 1009px;
   }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* .service-card {
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+} */
+.service-card {
+  animation: float 3s ease-in-out infinite;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.service-card:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 10px 20px rgba(255, 53, 53, 0.4);
+  background-color: #595959;
+}
+
+/* .perspective {
+  perspective: 1000px;
+} */
+/* .style-transform {
+  transform-style: preserve-3d;
+} */
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+.backface-hidden {
+  backface-visibility: hidden;
 }

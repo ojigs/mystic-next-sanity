@@ -74,9 +74,11 @@ const AboutPage = () => {
   return (
     <div className="bg-secondary text-primary">
       {/* Hero Section */}
-      <section className="relative pt-36 bg-gradient-to-br from-secondary to-secondary-100 py-20">
-        <div className="container mx-auto text-center text-primary">
-          <h1 className="text-2xl md:text-4xl font-bold mb-4">About Us</h1>
+      <section className="relative pt-36 bg-gradient-to-br from-secondary to-secondary-100 py-20 px-8">
+        <div className="mx-auto text-center text-primary-50">
+          <h1 className="text-2xl md:text-4xl font-bold mb-6 leading-relaxed">
+            About Us
+          </h1>
           <p className="text-lg text-primary-50 mb-8">
             We Capture Life’s Most Precious Moments
           </p>
@@ -305,8 +307,8 @@ const AboutPage = () => {
       </section>
 
       {/* Call to Action Section */}
-      <section className="bg-gradient-to-br from-secondary to-secondary-100 py-16">
-        <div className="container mx-auto text-center text-primary">
+      <section className="bg-gradient-to-br from-secondary to-secondary-100 py-16 px-8">
+        <div className="mx-auto text-center text-primary">
           <h2 className="text-3xl font-bold mb-4">Be a Part of Our Journey</h2>
           <p className="text-lg mb-8 text-primary-100">
             Interested in working with us? Reach out to learn more about our

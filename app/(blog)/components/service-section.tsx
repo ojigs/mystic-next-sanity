@@ -24,16 +24,21 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         alt={title}
         width={500}
         height={500}
-        className="rounded-md w-full h-auto"
+        className="rounded-t-md w-full h-auto"
       />
     </div>
     <div className="py-6 flex flex-col flex-auto justify-between items-center">
-      <div className="text-center mb-4">
-        <h3 className="text-xl font-semibold mb-2 text-accent">{title}</h3>
-        <p className="text-primary-100 mb-4">{description}</p>
+      <div className="mb-4">
+        <h3 className="text-xl text-center px-2 font-semibold mb-2 text-accent">
+          {title}
+        </h3>
+        <p className="text-primary-100 text-sm px-4 mb-4">{description}</p>
       </div>
-      <div>
-        <ButtonLink href={link} className="bg-accent text-center">
+      <div className="w-full px-4">
+        <ButtonLink
+          href={link}
+          className="bg-secondary-100 text-center hover:text-primary-100 w-full"
+        >
           Learn More
         </ButtonLink>
       </div>
@@ -74,7 +79,7 @@ const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-secondary py-16">
+    <section className="bg-secondary-100 py-16">
       <div className="px-8 max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center glowRed">
           Our Services
@@ -82,7 +87,7 @@ const ServicesSection: React.FC = () => {
         <p className="uppercase text-xs mb-16 text-center">
           Learn about our <span className="glowing-text">offerings</span>
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <ServiceCard key={index} {...service} />
           ))}

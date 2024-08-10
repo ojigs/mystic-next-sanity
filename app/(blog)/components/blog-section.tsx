@@ -59,7 +59,7 @@ export default async function BlogSection() {
                 <div className="flex justify-end">
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="mb-4 text-accent hover:text-primary border-accent hover:bg-accent transition-colors font-semibold text-xs uppercase px-6 py-2 border "
+                    className="mb-4 text-accent hover:text-primary border-accent hover:bg-accent transition-colors duration-500 ease-in-out font-semibold text-xs uppercase px-6 py-2 border "
                   >
                     Read more...
                   </Link>
