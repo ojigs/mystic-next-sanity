@@ -112,6 +112,7 @@ export default async function Page() {
           src="/heroImage.jpg"
           alt="Hero Image"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           style={{ objectFit: "cover" }}
           className="opacity-50"
           priority
@@ -272,7 +273,13 @@ export default async function Page() {
       <BlogSection />
 
       {/* Contact Section */}
-      <ContactSection />
+      <div className="mt-16">
+        <ContactSection
+          title="Get in Touch"
+          description="We'd love to hear from you. Click the link below to reach our contact
+          page and let us know how we can assist you."
+        />
+      </div>
 
       {/* <Intro title={settings?.title} description={settings?.description} />
       {heroPost ? (

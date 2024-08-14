@@ -201,7 +201,7 @@ export type PortfolioCategory = {
   title?: string;
   description?: string;
   slug?: Slug;
-  image?: {
+  coverImage?: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -213,6 +213,19 @@ export type PortfolioCategory = {
     alt?: string;
     _type: "image";
   };
+  gallery?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
 };
 
 export type Post = {
@@ -791,6 +804,45 @@ export type BlogFeatureQueryResult = Array<{
       _type: "image";
     } | null;
   } | null;
+}>;
+// Variable: portfolioQuery
+// Query: *[_type == "portfolioCategory" && slug.current == $slug] [0] {   _id,  "title": coalesce(title, "Untitled"),  "slug": slug.current,  description,  coverImage,  gallery,}
+export type PortfolioQueryResult = {
+  _id: string;
+  title: string | "Untitled";
+  slug: string | null;
+  description: string | null;
+  coverImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  gallery: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+} | null;
+// Source: ./app/(blog)/portfolio/[slug]/page.tsx
+// Variable: portfolioSlugs
+// Query: *[_type == "post"]{slug}
+export type PortfolioSlugsResult = Array<{
+  slug: Slug | null;
 }>;
 // Source: ./app/(blog)/posts/[slug]/page.tsx
 // Variable: postSlugs

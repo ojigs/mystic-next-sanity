@@ -1,4 +1,3 @@
-import { StarIcon } from "@sanity/icons";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -10,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import ButtonLink from "../button-link";
+import ContactSection from "../components/contact-section";
 
 interface TeamMember {
   name: string;
@@ -80,7 +80,7 @@ const AboutPage = () => {
             About Us
           </h1>
           <p className="text-lg text-primary-50 mb-8">
-            We Capture Life’s Most Precious Moments
+            We Capture Life's Most Precious Moments
           </p>
           <ButtonLink href="/contact" className="bg-accent">
             Get in Touch
@@ -242,7 +242,7 @@ const AboutPage = () => {
                   </div>
                 </div>
               </div>
-              {/* Milestone 1 */}
+              {/* Milestone 2 */}
               <div className="w-full md:w-1/2">
                 <div className="flex relative">
                   <div className="bg-accent mt-2 shrink-0 w-4 h-4 rounded-full"></div>
@@ -258,7 +258,7 @@ const AboutPage = () => {
                   </div>
                 </div>
               </div>
-              {/* Milestone 1 */}
+              {/* Milestone 3 */}
               <div className="w-full md:w-1/2">
                 <div className="flex relative">
                   <div className="bg-accent mt-2 shrink-0 w-4 h-4 rounded-full"></div>
@@ -272,7 +272,7 @@ const AboutPage = () => {
                   </div>
                 </div>
               </div>
-              {/* Milestone 1 */}
+              {/* Milestone 4 */}
               <div className="w-full md:w-1/2">
                 <div className="flex relative">
                   <div className="bg-accent mt-2 shrink-0 w-4 h-4 rounded-full"></div>
@@ -288,7 +288,7 @@ const AboutPage = () => {
                   </div>
                 </div>
               </div>
-              {/* Milestone 1 */}
+              {/* Milestone 5 */}
               <div className="w-full md:w-1/2 mb-8">
                 <div className="flex relative">
                   <div className="bg-accent mt-2 shrink-0 w-4 h-4 rounded-full"></div>
@@ -307,18 +307,11 @@ const AboutPage = () => {
       </section>
 
       {/* Call to Action Section */}
-      <section className="bg-gradient-to-br from-secondary to-secondary-100 py-16 px-8">
-        <div className="mx-auto text-center text-primary">
-          <h2 className="text-3xl font-bold mb-4">Be a Part of Our Journey</h2>
-          <p className="text-lg mb-8 text-primary-100">
-            Interested in working with us? Reach out to learn more about our
-            services and team.
-          </p>
-          <ButtonLink href="/contact" className="bg-accent">
-            Contact Us
-          </ButtonLink>
-        </div>
-      </section>
+      <ContactSection
+        title="Be a Part of Our Journey"
+        description="Interested in working with us? Reach out to learn more about our
+            services and packages."
+      />
     </div>
   );
 };

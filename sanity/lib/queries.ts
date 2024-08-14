@@ -45,3 +45,12 @@ export const blogFeatureQuery = groq`*[_type == "blogPost"] | order(_createdAt d
   defined(author) => author->{"name": coalesce(name, "Anonymous"), picture},
   {"name": "Anonymous"}
 )}`;
+
+export const portfolioQuery = groq`*[_type == "portfolioCategory" && slug.current == $slug] [0] {
+   _id,
+  "title": coalesce(title, "Untitled"),
+  "slug": slug.current,
+  description,
+  coverImage,
+  gallery,
+}`;

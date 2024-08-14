@@ -32,12 +32,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <h3 className="text-xl text-center px-2 font-semibold mb-2 text-accent">
           {title}
         </h3>
-        <p className="text-primary-100 text-sm px-4 mb-4">{description}</p>
+        <p className="text-primary-100 text-center text-sm px-4 mb-4">
+          {description}
+        </p>
       </div>
       <div className="w-full px-4">
         <ButtonLink
           href={link}
-          className="bg-secondary-100 text-center hover:text-primary-100 w-full"
+          className="bg-secondary-100 py-3 text-center hover:text-primary-100 w-full"
         >
           Learn More
         </ButtonLink>

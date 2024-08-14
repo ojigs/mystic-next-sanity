@@ -30,8 +30,8 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "image",
-      title: "Image",
+      name: "coverImage",
+      title: "Cover Image",
       type: "image",
       fields: [
         {
@@ -55,6 +55,40 @@ export default defineType({
         },
       },
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "gallery",
+      title: "Gallery",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: {
+            hotspot: true,
+            aiAssist: {
+              imageDescriptionField: "alt",
+            },
+          },
+          fields: [
+            {
+              name: "alt",
+              type: "string",
+              title: "Alternative text",
+              description: "Important for SEO and accessibility.",
+              validation: (rule) =>
+                rule.custom((alt, context) => {
+                  if ((context.document?.image as any)?.asset?._ref && !alt) {
+                    return "Required";
+                  }
+                  return true;
+                }),
+            },
+          ],
+        },
+      ],
+      options: {
+        layout: "grid",
+      },
     }),
   ],
 });
