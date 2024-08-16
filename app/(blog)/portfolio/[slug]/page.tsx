@@ -13,6 +13,9 @@ import { resolveOpenGraphImage, urlForImage } from "@/sanity/lib/utils";
 import HeroImage from "../../hero-image";
 import GalleryImage from "../../gallery-image";
 import Image from "next/image";
+import GalleryVideo from "../../gallery-video";
+import TestimonialSection from "../../components/testimonial-section";
+import ContactSection from "../../components/contact-section";
 
 type Props = {
   params: { slug: string };
@@ -100,27 +103,37 @@ export default async function PortfolioPage({ params }: Props) {
             </p>
             <div className="max-w-7xl mx-auto">
               <div className="masonry-container">
-                {portfolio.gallery?.map((image, index) => (
+                {portfolio.gallery?.map((media, index) => (
                   <div key={index} className="relative w-full masonry-item">
-                    <GalleryImage
-                      id={index.toString()}
-                      slug={params.slug}
-                      image={image}
-                      priority
-                    />
-                    {/* <Image
-                      src={urlForImage(image)?.url() as string}
-                      alt={image.alt || ""}
-                      width={500}
-                      height={500}
-                      className="rounded-md w-full h-auto"
-                    /> */}
+                    {media._type === "image" ? (
+                      <GalleryImage
+                        id={index.toString()}
+                        slug={params.slug}
+                        image={media}
+                        priority
+                      />
+                    ) : media._type === "video" ? (
+                      <GalleryVideo
+                        id={index.toString()}
+                        slug={params.slug}
+                        videoUrl={media.url}
+                      />
+                    ) : null}
                   </div>
                 ))}
               </div>
             </div>
           </div>
         </section>
+
+        {/* Testimonial section */}
+        <TestimonialSection />
+
+        {/* Contact section */}
+        <ContactSection
+          title="Connect with us"
+          description="Let's collaborate on your next project. Contact us to discuss your vision and bring your story to life through stunning visuals."
+        />
       </div>
     </>
   );

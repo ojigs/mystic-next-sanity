@@ -225,6 +225,11 @@ export type PortfolioCategory = {
     alt?: string;
     _type: "image";
     _key: string;
+  } | {
+    url?: string;
+    alt?: string;
+    _type: "video";
+    _key: string;
   }>;
 };
 
@@ -835,6 +840,11 @@ export type PortfolioQueryResult = {
     crop?: SanityImageCrop;
     alt?: string;
     _type: "image";
+    _key: string;
+  } | {
+    url?: string;
+    alt?: string;
+    _type: "video";
     _key: string;
   }> | null;
 } | null;

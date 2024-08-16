@@ -1,4 +1,3 @@
-// components/GalleryImage.tsx
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/utils";
 import Link from "next/link";
@@ -24,7 +23,10 @@ export default function GalleryImage(props: GalleryImageProps) {
       priority={priority}
     />
   ) : (
-    <div className="bg-slate-50" style={{ paddingTop: "50%" }} />
+    <div
+      className="bg-primary-50 rounded-lg shadow-md"
+      style={{ paddingTop: "80%" }}
+    />
   );
 
   return (
