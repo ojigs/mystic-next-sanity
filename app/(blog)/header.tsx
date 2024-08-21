@@ -1,14 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
     <header className="bg-secondary text-primary shadow-xl z-50 fixed left-0 right-0 shadow-gray-600">

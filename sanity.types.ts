@@ -175,21 +175,62 @@ export type SanityFileAsset = {
   source?: SanityAssetSourceData;
 };
 
-export type Package = {
+export type Service = {
   _id: string;
-  _type: "package";
+  _type: "service";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
   title?: string;
-  features?: Array<string>;
-  pricing?: number;
-  category?: {
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: "portfolioCategory";
+  description?: string;
+  slug?: Slug;
+  coverImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
   };
+  shortStory?: string;
+  gallery?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  packages?: Array<{
+    title?: string;
+    description?: string;
+    features?: Array<string>;
+    price?: string;
+    _type: "package";
+    _key: string;
+  }>;
+  process?: Array<{
+    title?: string;
+    description?: string;
+    _type: "step";
+    _key: string;
+  }>;
+  faq?: Array<{
+    question?: string;
+    answer?: string;
+    _type: "question";
+    _key: string;
+  }>;
+  formLink?: string;
 };
 
 export type PortfolioCategory = {
@@ -544,7 +585,7 @@ export type SanityAssistSchemaTypeField = {
   } & SanityAssistInstruction>;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | Testimonial | HomeFeature | BlogPost | SanityFileAsset | Package | PortfolioCategory | Post | Author | Slug | Settings | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | Testimonial | HomeFeature | BlogPost | SanityFileAsset | Service | PortfolioCategory | Post | Author | Slug | Settings | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: settingsQuery
@@ -848,6 +889,61 @@ export type PortfolioQueryResult = {
     _key: string;
   }> | null;
 } | null;
+// Variable: serviceQuery
+// Query: *[_type == "service" && slug.current == $slug][0] {    _id,  "title": coalesce(title, "Untitled"),  "slug": slug.current,  description,  shortStory,  coverImage,  gallery,  packages,  process,  faq,  formLink}
+export type ServiceQueryResult = {
+  _id: string;
+  title: string | "Untitled";
+  slug: string | null;
+  description: string | null;
+  shortStory: string | null;
+  coverImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  gallery: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+  packages: Array<{
+    title?: string;
+    description?: string;
+    features?: Array<string>;
+    price?: string;
+    _type: "package";
+    _key: string;
+  }> | null;
+  process: Array<{
+    title?: string;
+    description?: string;
+    _type: "step";
+    _key: string;
+  }> | null;
+  faq: Array<{
+    question?: string;
+    answer?: string;
+    _type: "question";
+    _key: string;
+  }> | null;
+  formLink: string | null;
+} | null;
 // Source: ./app/(blog)/portfolio/[slug]/page.tsx
 // Variable: portfolioSlugs
 // Query: *[_type == "post"]{slug}
@@ -858,5 +954,11 @@ export type PortfolioSlugsResult = Array<{
 // Variable: postSlugs
 // Query: *[_type == "post"]{slug}
 export type PostSlugsResult = Array<{
+  slug: Slug | null;
+}>;
+// Source: ./app/(blog)/services/[slug]/page.tsx
+// Variable: serviceSlugs
+// Query: *[_type == "service"]{slug}
+export type ServiceSlugsResult = Array<{
   slug: Slug | null;
 }>;

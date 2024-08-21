@@ -54,3 +54,17 @@ export const portfolioQuery = groq`*[_type == "portfolioCategory" && slug.curren
   coverImage,
   gallery,
 }`;
+
+export const serviceQuery = groq`*[_type == "service" && slug.current == $slug][0] {
+    _id,
+  "title": coalesce(title, "Untitled"),
+  "slug": slug.current,
+  description,
+  shortStory,
+  coverImage,
+  gallery,
+  packages,
+  process,
+  faq,
+  formLink
+}`;
