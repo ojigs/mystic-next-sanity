@@ -46,6 +46,16 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Category = {
+  _id: string;
+  _type: "category";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  value?: string;
+};
+
 export type Testimonial = {
   _id: string;
   _type: "testimonial";
@@ -151,6 +161,13 @@ export type BlogPost = {
     _weak?: boolean;
     [internalGroqTypeReferenceTo]?: "author";
   };
+  categories?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "category";
+  }>;
 };
 
 export type SanityFileAsset = {
@@ -585,7 +602,7 @@ export type SanityAssistSchemaTypeField = {
   } & SanityAssistInstruction>;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | Testimonial | HomeFeature | BlogPost | SanityFileAsset | Service | PortfolioCategory | Post | Author | Slug | Settings | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | Category | Testimonial | HomeFeature | BlogPost | SanityFileAsset | Service | PortfolioCategory | Post | Author | Slug | Settings | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | SanityAssistInstructionTask | SanityAssistTaskStatus | SanityAssistSchemaTypeAnnotations | SanityAssistOutputType | SanityAssistOutputField | SanityAssistInstructionContext | AssistInstructionContext | SanityAssistInstructionUserInput | SanityAssistInstructionPrompt | SanityAssistInstructionFieldRef | SanityAssistInstruction | SanityAssistSchemaTypeField;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/queries.ts
 // Variable: settingsQuery
@@ -944,6 +961,59 @@ export type ServiceQueryResult = {
   }> | null;
   formLink: string | null;
 } | null;
+// Variable: blogPostsQuery
+// Query: *[_type == "blogPost" && ($category == null || $category in categories[]->value)] | order(date desc, _updatedAt desc) {  _id,  "status": select(_originalId in path("drafts.**") => "draft", "published"),  "title": coalesce(title, "Untitled"),  "slug": slug.current,  "date": coalesce(date, _updatedAt),  "author": select(    defined(author) => author->{"name": coalesce(name, "Anonymous"), picture},    {"name": "Anonymous", "picture": null}  ),  excerpt,  coverImage,  categories[]->{ title, value }}[$startLimit...$endLimit]
+export type BlogPostsQueryResult = Array<{
+  _id: string;
+  status: "draft" | "published";
+  title: string | "Untitled";
+  slug: string | null;
+  date: string;
+  author: {
+    name: "Anonymous";
+    picture: null;
+  } | {
+    name: string | "Anonymous";
+    picture: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    } | null;
+  } | null;
+  excerpt: string | null;
+  coverImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  categories: Array<{
+    title: string | null;
+    value: string | null;
+  }> | null;
+}>;
+// Variable: totalPostsQuery
+// Query: count(*[_type == "blogPost" && ($category == null || $category in categories[]->value)])
+export type TotalPostsQueryResult = number;
+// Variable: categoriesQuery
+// Query: *[_type == "category"] { title, value }
+export type CategoriesQueryResult = Array<{
+  title: string | null;
+  value: string | null;
+}>;
 // Source: ./app/(blog)/portfolio/[slug]/page.tsx
 // Variable: portfolioSlugs
 // Query: *[_type == "post"]{slug}

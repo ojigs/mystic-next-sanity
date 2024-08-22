@@ -23,6 +23,7 @@ import packageType from "@/sanity/schemas/documents/package";
 import blog from "@/sanity/schemas/documents/blog";
 import feature from "@/sanity/schemas/documents/feature";
 import testimonial from "@/sanity/schemas/documents/testimonial";
+import category from "@/sanity/schemas/documents/blogCategory";
 import settings from "@/sanity/schemas/singletons/settings";
 import { resolveHref } from "@/sanity/lib/utils";
 
@@ -47,6 +48,7 @@ export default defineConfig({
       blog,
       feature,
       testimonial,
+      category,
     ],
   },
   plugins: [

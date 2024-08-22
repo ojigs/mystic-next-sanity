@@ -68,3 +68,22 @@ export const serviceQuery = groq`*[_type == "service" && slug.current == $slug][
   faq,
   formLink
 }`;
+
+export const blogPostsQuery = groq`*[_type == "blogPost" && ($category == null || $category in categories[]->value)] | order(date desc, _updatedAt desc) {
+  _id,
+  "status": select(_originalId in path("drafts.**") => "draft", "published"),
+  "title": coalesce(title, "Untitled"),
+  "slug": slug.current,
+  "date": coalesce(date, _updatedAt),
+  "author": select(
+    defined(author) => author->{"name": coalesce(name, "Anonymous"), picture},
+    {"name": "Anonymous", "picture": null}
+  ),
+  excerpt,
+  coverImage,
+  categories[]->{ title, value }
+}[$startLimit...$endLimit]`;
+
+export const totalPostsQuery = groq`count(*[_type == "blogPost" && ($category == null || $category in categories[]->value)])`;
+
+export const categoriesQuery = groq`*[_type == "category"] { title, value }`;
