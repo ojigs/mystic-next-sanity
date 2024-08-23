@@ -51,7 +51,7 @@ export const PackagesSection: React.FC<PackagesSectionProps> = ({
                 <div className="text-center py-6">
                   <ButtonLink
                     href={`${link}`}
-                    className="bg-secondary-100 text-center py-3 shadow-inner drop-shadow-md shadow-primary-100/50 hover:text-primary-100 w-full"
+                    className="bg-secondary-100 bg-opacity-75 hover:bg-opacity-100 text-center py-3 shadow-inner drop-shadow-md shadow-primary-100/50 text-primary-100 text-opacity-75 hover:text-primary hover:text-opacity-100 w-full"
                     target="_blank"
                   >
                     Choose package

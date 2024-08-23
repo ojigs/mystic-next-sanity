@@ -16,6 +16,7 @@ import Image from "next/image";
 import GalleryVideo from "../../gallery-video";
 import TestimonialSection from "../../components/testimonial-section";
 import ContactSection from "../../components/contact-section";
+import Link from "next/link";
 
 type Props = {
   params: { slug: string };
@@ -125,6 +126,16 @@ export default async function PortfolioPage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        {/* Package Link */}
+        <div className="py-16 px-8 bg-gradient-to-br from-secondary to-secondary-100 text-center">
+          <Link
+            href={`/services/${params.slug}`}
+            className="text-primary-50 text-center text-xl hover:underline glowing-text"
+          >
+            See {portfolio.title} packages &rarr;
+          </Link>
+        </div>
 
         {/* Testimonial section */}
         <TestimonialSection />
