@@ -108,13 +108,13 @@ export default async function Page() {
               We create a story with your beautiful memories
             </p>
             <p className="mb-4 text-primary-100">
-              We are passionate about capturing life's most precious moments
-              through the art of photography and videography. Our team of
-              skilled professionals brings years of experience and creativity to
-              every project.
+              We are passionate about capturing life&apos;s most precious
+              moments through the art of photography and videography. Our team
+              of skilled professionals brings years of experience and creativity
+              to every project.
             </p>
             <p className="mb-8 text-primary-100">
-              Whether it's a wedding, corporate event, or personal portrait
+              Whether it&apos;s a wedding, corporate event, or personal portrait
               session, we strive to deliver stunning visuals that tell your
               unique story. Our commitment to quality and attention to detail
               sets us apart in the industry.
@@ -164,8 +164,8 @@ export default async function Page() {
               </p>
               <p className="mb-8 text-primary-100">
                 Our approach combines candid shots that capture raw emotions
-                with carefully composed portraits that you'll treasure for a
-                lifetime.
+                with carefully composed portraits that you&apos;ll treasure for
+                a lifetime.
               </p>
               <ButtonLink href="/portfolio/weddings" className="bg-accent">
                 View Wedding Portfolio

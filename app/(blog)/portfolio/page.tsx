@@ -34,7 +34,7 @@ const PortfolioPage = () => {
             Our Portfolio
           </h1>
           <p className="text-lg text-primary-50 mb-8">
-            Discover the moments we've captured over the years.
+            Discover the moments we&apos;ve captured over the years.
           </p>
         </div>
       </section>

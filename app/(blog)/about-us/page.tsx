@@ -80,7 +80,7 @@ const AboutPage = () => {
             About Us
           </h1>
           <p className="text-lg text-primary-50 mb-8">
-            We Capture Life's Most Precious Moments
+            We Capture Life&apos;s Most Precious Moments
           </p>
           <ButtonLink href="/contact" className="bg-accent">
             Get in Touch
@@ -110,16 +110,16 @@ const AboutPage = () => {
               </h2>
               <p className="mb-4 text-primary-100">
                 Our journey began in 2010 with a shared passion for capturing
-                life's most precious moments through the art of photography and
-                videography. What started as a small team of two has now grown
-                into a vibrant collective of skilled professionals, each
+                life&apos;s most precious moments through the art of photography
+                and videography. What started as a small team of two has now
+                grown into a vibrant collective of skilled professionals, each
                 bringing their unique creativity and expertise to every project.
               </p>
               <p className="mb-4 text-primary-100">
-                Over the years, we've had the privilege of documenting countless
-                weddings, corporate events, and personal milestones. Each
-                experience has not only honed our skills but also deepened our
-                appreciation for the power of visual storytelling.
+                Over the years, we&apos;ve had the privilege of documenting
+                countless weddings, corporate events, and personal milestones.
+                Each experience has not only honed our skills but also deepened
+                our appreciation for the power of visual storytelling.
               </p>
               <p className="mb-6 text-primary-100">
                 We believe in delivering stunning visuals that not only capture
@@ -237,7 +237,7 @@ const AboutPage = () => {
                     <h3 className="font-bold text-lg mb-2">Founded</h3>
                     <p className="text-primary-100 mb-16">
                       Our company was founded in 2010 with a vision to capture
-                      life's moments.
+                      life&apos;s moments.
                     </p>
                   </div>
                 </div>
