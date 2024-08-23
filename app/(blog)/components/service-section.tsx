@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import ButtonLink from "../button-link";
+import ButtonLink from "./button-link";
 
 interface Service {
   title: string;

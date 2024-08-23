@@ -10,10 +10,10 @@ import type {
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { portfolioQuery, settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage, urlForImage } from "@/sanity/lib/utils";
-import HeroImage from "../../hero-image";
-import GalleryImage from "../../gallery-image";
+import HeroImage from "../../components/hero-image";
+import GalleryImage from "../../components/gallery-image";
 import Image from "next/image";
-import GalleryVideo from "../../gallery-video";
+import GalleryVideo from "../../components/gallery-video";
 import TestimonialSection from "../../components/testimonial-section";
 import ContactSection from "../../components/contact-section";
 import Link from "next/link";

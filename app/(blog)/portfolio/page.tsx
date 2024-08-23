@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import ButtonLink from "../button-link";
+import ButtonLink from "../components/button-link";
 import ContactSection from "../components/contact-section";
 
 interface PortfolioCategory {

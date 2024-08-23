@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import ButtonLink from "../button-link";
+import ButtonLink from "./button-link";
 import Image from "next/image";
 
 interface Props {

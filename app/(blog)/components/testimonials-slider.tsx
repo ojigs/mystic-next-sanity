@@ -10,7 +10,7 @@ import "swiper/css/a11y";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
 import { TestimonialsQueryResult } from "@/sanity.types";
-import ClientAvatar from "../client-avatar";
+import ClientAvatar from "./client-avatar";
 
 interface TestimonialsSliderProps {
   testimonials: TestimonialsQueryResult;

@@ -10,9 +10,9 @@ import type {
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { serviceQuery, settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage, urlForImage } from "@/sanity/lib/utils";
-import HeroImage from "../../hero-image";
-import GalleryImage from "../../gallery-image";
-import GalleryVideo from "../../gallery-video";
+import HeroImage from "../../components/hero-image";
+import GalleryImage from "../../components/gallery-image";
+import GalleryVideo from "../../components/gallery-video";
 import { PackagesSection } from "../../components/package-section";
 import { ProcessSection } from "../../components/process-section";
 import { FAQsSection } from "../../components/faq-section";

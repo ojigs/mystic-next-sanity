@@ -4,11 +4,11 @@ import VideoPlayer from "@/app/(blog)/components/video-player";
 import AuthorBio from "@/app/(blog)/components/author-bio";
 import RelatedPosts from "@/app/(blog)/components/related-posts";
 import ImageGallery from "@/app/(blog)/components/image-gallery";
-import { BlogPostQueryResult } from "@/sanity.types";
-import DateComponent from "../../date";
-import PortableText from "../../portable-text";
-import { PortableTextBlock } from "next-sanity";
-import CoverImage from "../../cover-image";
+import { BlogPostQueryResult, BlogPostSlugsResult } from "@/sanity.types";
+import DateComponent from "../../components/date";
+import PortableText from "../../components/portable-text";
+import { groq, PortableTextBlock } from "next-sanity";
+import CoverImage from "../../components/cover-image";
 import ContactSection from "../../components/contact-section";
 import { Metadata, ResolvingMetadata } from "next";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
@@ -17,6 +17,17 @@ import { notFound } from "next/navigation";
 type Props = {
   params: { slug: string };
 };
+
+const blogPostSlugs = groq`*[_type == "post"]{slug}`;
+
+export async function generateStaticParams() {
+  const params = await sanityFetch<BlogPostSlugsResult>({
+    query: blogPostSlugs,
+    perspective: "published",
+    stega: false,
+  });
+  return params.map(({ slug }) => ({ slug: slug?.current }));
+}
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
@@ -50,7 +61,6 @@ export default async function BlogPostPage({
   });
 
   if (!post) {
-    // Handle 404
     return notFound();
   }
 

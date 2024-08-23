@@ -1,4 +1,4 @@
-import ButtonLink from "../button-link";
+import ButtonLink from "./button-link";
 
 interface Package {
   title?: string | undefined;

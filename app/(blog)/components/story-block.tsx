@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import ButtonLink from "../button-link";
+import ButtonLink from "./button-link";
 
 interface StoryBlockProps {
   title: string;

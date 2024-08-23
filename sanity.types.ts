@@ -1106,6 +1106,12 @@ export type RelatedPostsQueryResult = Array<{
     value: string | null;
   }> | null;
 }>;
+// Source: ./app/(blog)/blog/[slug]/page.tsx
+// Variable: blogPostSlugs
+// Query: *[_type == "post"]{slug}
+export type BlogPostSlugsResult = Array<{
+  slug: Slug | null;
+}>;
 // Source: ./app/(blog)/portfolio/[slug]/page.tsx
 // Variable: portfolioSlugs
 // Query: *[_type == "post"]{slug}

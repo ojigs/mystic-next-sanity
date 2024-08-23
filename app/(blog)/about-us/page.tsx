@@ -8,7 +8,7 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
-import ButtonLink from "../button-link";
+import ButtonLink from "../components/button-link";
 import ContactSection from "../components/contact-section";
 
 interface TeamMember {

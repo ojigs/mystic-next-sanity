@@ -3,7 +3,7 @@ import { FaVideo, FaImagePortrait, FaCodeMerge } from "react-icons/fa6";
 import { SiBrandfolder } from "react-icons/si";
 import Link from "next/link";
 import { IconType } from "react-icons/lib";
-import ButtonLink from "../button-link";
+import ButtonLink from "../components/button-link";
 import ServiceCard from "../components/service-contact-card";
 import TestimonialsSection from "../components/testimonial-section";
 

@@ -3,9 +3,9 @@ import { blogFeatureQuery } from "@/sanity/lib/queries";
 import { BlogFeatureQueryResult } from "@/sanity.types";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import Link from "next/link";
-import Avatar from "../avatar";
-import CoverImage from "../cover-image";
-import DateComponent from "../date";
+import Avatar from "./avatar";
+import CoverImage from "./cover-image";
+import DateComponent from "./date";
 
 export default async function BlogSection() {
   const [blogPosts] = await Promise.all([

@@ -2,8 +2,8 @@ import { BlogPostsQueryResult } from "@/sanity.types";
 import { urlForImage } from "@/sanity/lib/utils";
 import { Image } from "next-sanity/image";
 import Link from "next/link";
-import Avatar from "../avatar";
-import DateComponent from "../date";
+import Avatar from "./avatar";
+import DateComponent from "./date";
 
 type BlogListProps = {
   blogPosts: BlogPostsQueryResult;
