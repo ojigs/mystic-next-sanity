@@ -1,124 +1,139 @@
-// import type { Metadata, ResolvingMetadata } from "next";
-// import { groq, type PortableTextBlock } from "next-sanity";
-// import Link from "next/link";
-// import { notFound } from "next/navigation";
-// import { Suspense } from "react";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { blogPostQuery } from "@/sanity/lib/queries";
+import VideoPlayer from "@/app/(blog)/components/video-player";
+import AuthorBio from "@/app/(blog)/components/author-bio";
+import RelatedPosts from "@/app/(blog)/components/related-posts";
+import ImageGallery from "@/app/(blog)/components/image-gallery";
+import { BlogPostQueryResult } from "@/sanity.types";
+import DateComponent from "../../date";
+import PortableText from "../../portable-text";
+import { PortableTextBlock } from "next-sanity";
+import CoverImage from "../../cover-image";
+import ContactSection from "../../components/contact-section";
+import { Metadata, ResolvingMetadata } from "next";
+import { resolveOpenGraphImage } from "@/sanity/lib/utils";
+import { notFound } from "next/navigation";
 
-// import Avatar from "../../avatar";
-// import CoverImage from "../../cover-image";
-// import DateComponent from "../../date";
-// import MoreStories from "../../more-stories";
-// import PortableText from "../../portable-text";
+type Props = {
+  params: { slug: string };
+};
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const post = await sanityFetch<BlogPostQueryResult>({
+    query: blogPostQuery,
+    params,
+    stega: false,
+  });
+  const previousImages = (await parent).openGraph?.images || [];
+  const ogImage = resolveOpenGraphImage(post?.coverImage);
 
-// import type {
-//   PostQueryResult,
-//   PostSlugsResult,
-//   SettingsQueryResult,
-// } from "@/sanity.types";
-// import * as demo from "@/sanity/lib/demo";
-// import { sanityFetch } from "@/sanity/lib/fetch";
-// import { postQuery, settingsQuery } from "@/sanity/lib/queries";
-// import { resolveOpenGraphImage } from "@/sanity/lib/utils";
+  return {
+    authors: post?.author?.name ? [{ name: post?.author?.name }] : [],
+    title: post?.title,
+    description: post?.excerpt,
+    openGraph: {
+      images: ogImage ? [ogImage, ...previousImages] : previousImages,
+    },
+  } satisfies Metadata;
+}
 
-// type Props = {
-//   params: { slug: string };
-// };
+export default async function BlogPostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = await sanityFetch<BlogPostQueryResult>({
+    query: blogPostQuery,
+    params: { slug: params.slug },
+  });
 
-// const postSlugs = groq`*[_type == "post"]{slug}`;
+  if (!post) {
+    // Handle 404
+    return notFound();
+  }
 
-// export async function generateStaticParams() {
-//   const params = await sanityFetch<PostSlugsResult>({
-//     query: postSlugs,
-//     perspective: "published",
-//     stega: false,
-//   });
-//   return params.map(({ slug }) => ({ slug: slug?.current }));
-// }
+  return (
+    <div className="bg-secondary text-primary">
+      <article className="max-w-4xl mx-auto px-8 pt-24">
+        {/* Hero Section */}
+        <div className="relative h-96 mb-8 overflow-clip">
+          <CoverImage
+            image={post.coverImage}
+            className="h-full bg-cover"
+            priority
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-secondary to-transparent p-6">
+            <h1 className="text-4xl font-bold text-primary mb-2">
+              {post.title}
+            </h1>
+            <div className="text-primary opacity-75">
+              By {post.author?.name} on <DateComponent dateString={post.date} />
+            </div>
+            <div className="mt-2">
+              {post.categories?.map((category) => (
+                <span
+                  key={category._id}
+                  className="inline-block bg-accent text-primary-50 px-2 py-1 rounded-full text-sm mr-2"
+                >
+                  {category.title}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
 
-// export async function generateMetadata(
-//   { params }: Props,
-//   parent: ResolvingMetadata
-// ): Promise<Metadata> {
-//   const post = await sanityFetch<PostQueryResult>({
-//     query: postQuery,
-//     params,
-//     stega: false,
-//   });
-//   const previousImages = (await parent).openGraph?.images || [];
-//   const ogImage = resolveOpenGraphImage(post?.coverImage);
+        {/* Main Content */}
+        <div className="prose prose-lg mx-auto text-primary-50">
+          <PortableText
+            value={post.content as PortableTextBlock[]}
+            className="text-primary-50"
+          />
+        </div>
 
-//   return {
-//     authors: post?.author?.name ? [{ name: post?.author?.name }] : [],
-//     title: post?.title,
-//     description: post?.excerpt,
-//     openGraph: {
-//       images: ogImage ? [ogImage, ...previousImages] : previousImages,
-//     },
-//   } satisfies Metadata;
-// }
+        {/* Image Gallery */}
+        {post.gallery && post.gallery.length > 0 && (
+          <ImageGallery
+            images={post.gallery.map((image) => ({
+              asset: { url: image.asset?.url || "" },
+              alt: image.alt || "",
+            }))}
+          />
+        )}
 
-// export default async function PostPage({ params }: Props) {
-//   const [post, settings] = await Promise.all([
-//     sanityFetch<PostQueryResult>({
-//       query: postQuery,
-//       params,
-//     }),
-//     sanityFetch<SettingsQueryResult>({
-//       query: settingsQuery,
-//     }),
-//   ]);
+        {/* Video Section */}
+        {post.videos && post.videos.length > 0 && (
+          <div className="my-8">
+            <h2 className="text-2xl font-bold mb-4">Videos</h2>
+            <div className="masonry-container video">
+              {post.videos.map(
+                (video, index) =>
+                  video.asset?.url && (
+                    <VideoPlayer key={index} url={video.asset.url} />
+                  )
+              )}
+            </div>
+          </div>
+        )}
 
-//   if (!post?._id) {
-//     return notFound();
-//   }
-
-//   return (
-//     <div className="container mx-auto px-5 bg-primary-50">
-//       <h2 className="mb-16 mt-10 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
-//         <Link href="/" className="hover:underline">
-//           {settings?.title || demo.title}
-//         </Link>
-//       </h2>
-//       <article>
-//         <h1 className="text-balance mb-12 text-6xl font-bold leading-tight tracking-tighter md:text-7xl md:leading-none lg:text-8xl">
-//           {post.title}
-//         </h1>
-//         <div className="hidden md:mb-12 md:block">
-//           {post.author && (
-//             <Avatar name={post.author.name} picture={post.author.picture} />
-//           )}
-//         </div>
-//         <div className="mb-8 sm:mx-0 md:mb-16">
-//           <CoverImage image={post.coverImage} priority />
-//         </div>
-//         <div className="mx-auto max-w-2xl">
-//           <div className="mb-6 block md:hidden">
-//             {post.author && (
-//               <Avatar name={post.author.name} picture={post.author.picture} />
-//             )}
-//           </div>
-//           <div className="mb-6 text-lg">
-//             <div className="mb-4 text-lg">
-//               <DateComponent dateString={post.date} />
-//             </div>
-//           </div>
-//         </div>
-//         {post.content?.length && (
-//           <PortableText
-//             className="mx-auto max-w-2xl"
-//             value={post.content as PortableTextBlock[]}
-//           />
-//         )}
-//       </article>
-//       <aside>
-//         <hr className="border-accent-2 mb-24 mt-28" />
-//         <h2 className="mb-8 text-6xl font-bold leading-tight tracking-tighter md:text-7xl">
-//           Recent Stories
-//         </h2>
-//         <Suspense>
-//           <MoreStories skip={post._id} limit={2} />
-//         </Suspense>
-//       </aside>
-//     </div>
-//   );
-// }
+        {/* Author Bio */}
+        <div className="hidden md:mb-12 md:block">
+          {post.author && <AuthorBio author={post.author} />}
+        </div>
+        {/* Related Posts */}
+        {post.categories && post.categories.length > 0 && (
+          <RelatedPosts
+            categories={post.categories || []}
+            currentPostId={post._id}
+          />
+        )}
+      </article>
+      {/* Contact Section */}
+      <ContactSection
+        title="Let us write your story"
+        description="Every moment has a story, and we are here to tell yours. Dive into our insights and experiences as we capture life's most memorable events."
+      />
+    </div>
+  );
+}

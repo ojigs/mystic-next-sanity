@@ -1,59 +1,3 @@
-// "use client";
-
-// import { useRouter, useSearchParams } from "next/navigation";
-
-// type CategoryFilterProps = {
-//   isMobile?: boolean;
-// };
-
-// export default function CategoryFilter({ isMobile }: CategoryFilterProps) {
-//   const router = useRouter();
-//   const searchParams = useSearchParams();
-
-//   const categories = [
-//     "Weddings",
-//     "Portraits",
-//     "Branding",
-//     "Cinematography",
-//     "Behind the Scenes",
-//     "Client Stories",
-//     "Tips & Tricks",
-//     "Industry Trends",
-//     "Events",
-//     "Gear Reviews",
-//   ];
-
-//   const createQueryString = (name: string, value: string) => {
-//     const params = new URLSearchParams(searchParams);
-//     params.set(name, value);
-//     return params.toString();
-//   };
-
-//   const handleCategoryClick = (category: string) => {
-//     router.push(`/blog?${createQueryString("category", category)}`);
-//   };
-
-//   return (
-//     <div
-//       className={`${
-//         isMobile
-//           ? "flex sticky top-0 space-x-4 overflow-x-auto"
-//           : "flex flex-col space-y-2"
-//       }`}
-//     >
-//       {categories.map((category) => (
-//         <button
-//           key={category}
-//           className="text-primary bg-secondary px-4 py-2 rounded-md hover:bg-accent shadow-inner shadow-primary-100/50"
-//           onClick={() => handleCategoryClick(category)}
-//         >
-//           {category}
-//         </button>
-//       ))}
-//     </div>
-//   );
-// }
-
 "use client";
 
 import { CategoriesQueryResult } from "@/sanity.types";
@@ -81,7 +25,7 @@ export default function CategoryFilter({
     } else {
       params.delete(name);
     }
-    params.delete("page"); // Reset page when changing category
+    params.delete("page");
     return params.toString();
   };
 

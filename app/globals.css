@@ -166,6 +166,10 @@ body {
   column-count: 2;
 }
 
+.masonry-container.video {
+  column-count: 1;
+}
+
 .masonry-item {
   break-inside: avoid;
   margin-bottom: 1rem;
@@ -174,6 +178,9 @@ body {
 @media (min-width: 768px) {
   .masonry-container {
     column-count: 5;
+  }
+  .masonry-container.video {
+    column-count: 2;
   }
 }
 .testimonial-bg-1 {

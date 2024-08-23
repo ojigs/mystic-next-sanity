@@ -87,3 +87,40 @@ export const blogPostsQuery = groq`*[_type == "blogPost" && ($category == null |
 export const totalPostsQuery = groq`count(*[_type == "blogPost" && ($category == null || $category in categories[]->value)])`;
 
 export const categoriesQuery = groq`*[_type == "category"] { title, value }`;
+
+export const blogPostQuery = groq`*[_type == "blogPost" && slug.current == $slug][0] {
+  _id,
+  title,
+  slug,
+  content,
+  excerpt,
+  coverImage,
+  gallery[] {asset-> {url },alt },
+  videos[] {asset-> { url}},
+  "date": coalesce(date, _updatedAt),  
+  "author": select(
+    defined(author) => author->{"name": coalesce(name, "Anonymous"), picture},
+    {"name": "Anonymous", "picture": null}
+  ),
+  categories[]-> {_id, title, value}
+}`;
+
+export const relatedPostsQuery = groq`
+*[_type == "blogPost" && count(categories[@._ref in $categories]) > 0 && _id != $currentPostId] | order(date desc) [0...2] {
+  _id,
+  title,
+  slug,
+  excerpt,
+  coverImage {
+    asset-> {
+      url
+    },
+    alt
+  },
+  categories[]-> {
+    _id,
+    title,
+    value
+  }
+}
+`;

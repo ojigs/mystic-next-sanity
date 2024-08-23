@@ -1,17 +1,19 @@
 import { Image } from "next-sanity/image";
 
 import { urlForImage } from "@/sanity/lib/utils";
+import { twMerge } from "tailwind-merge";
 
 interface CoverImageProps {
   image: any;
   priority?: boolean;
+  className?: string;
 }
 
 export default function CoverImage(props: CoverImageProps) {
-  const { image: source, priority } = props;
+  const { image: source, priority, className } = props;
   const image = source?.asset?._ref ? (
     <Image
-      className="h-auto w-full"
+      className={twMerge("h-auto w-full", className)}
       width={2000}
       height={1000}
       alt={source?.alt || ""}
@@ -20,7 +22,7 @@ export default function CoverImage(props: CoverImageProps) {
       priority={priority}
     />
   ) : (
-    <div className="bg-slate-50" style={{ paddingTop: "50%" }} />
+    <div className="bg-secondary-100" style={{ paddingTop: "50%" }} />
   );
 
   return (

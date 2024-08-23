@@ -1014,6 +1014,98 @@ export type CategoriesQueryResult = Array<{
   title: string | null;
   value: string | null;
 }>;
+// Variable: blogPostQuery
+// Query: *[_type == "blogPost" && slug.current == $slug][0] {  _id,  title,  slug,  content,  excerpt,  coverImage,  gallery[] {asset-> {url },alt },  videos[] {asset-> { url}},  "date": coalesce(date, _updatedAt),    "author": select(    defined(author) => author->{"name": coalesce(name, "Anonymous"), picture},    {"name": "Anonymous", "picture": null}  ),  categories[]-> {_id, title, value}}
+export type BlogPostQueryResult = {
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  content: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  excerpt: string | null;
+  coverImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  gallery: Array<{
+    asset: {
+      url: string | null;
+    } | null;
+    alt: string | null;
+  }> | null;
+  videos: Array<{
+    asset: {
+      url: string | null;
+    } | null;
+  }> | null;
+  date: string;
+  author: {
+    name: "Anonymous";
+    picture: null;
+  } | {
+    name: string | "Anonymous";
+    picture: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    } | null;
+  } | null;
+  categories: Array<{
+    _id: string;
+    title: string | null;
+    value: string | null;
+  }> | null;
+} | null;
+// Variable: relatedPostsQuery
+// Query: *[_type == "blogPost" && count(categories[@._ref in $categories]) > 0 && _id != $currentPostId] | order(date desc) [0...2] {  _id,  title,  slug,  excerpt,  coverImage {    asset-> {      url    },    alt  },  categories[]-> {    _id,    title,    value  }}
+export type RelatedPostsQueryResult = Array<{
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  excerpt: string | null;
+  coverImage: {
+    asset: {
+      url: string | null;
+    } | null;
+    alt: string | null;
+  } | null;
+  categories: Array<{
+    _id: string;
+    title: string | null;
+    value: string | null;
+  }> | null;
+}>;
 // Source: ./app/(blog)/portfolio/[slug]/page.tsx
 // Variable: portfolioSlugs
 // Query: *[_type == "post"]{slug}
