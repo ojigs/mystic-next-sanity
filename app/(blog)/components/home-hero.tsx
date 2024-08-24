@@ -27,7 +27,7 @@ const HomeHero = () => {
     <>
       {!isVideoLoaded && (
         <Image
-          src="/heroImage2.png"
+          src="/heroImage3.png"
           alt="Hero Image"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -62,6 +62,10 @@ const HomeHero = () => {
           Book Now
         </ButtonLink>
       </div>
+      {/* <div
+        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-secondary to-transparent"
+        style={{ paddingTop: "50%" }}
+      /> */}
     </>
   );
 };
