@@ -16,6 +16,7 @@ import TestimonialsSection from "./components/testimonial-section";
 import BlogSection from "./components/blog-section";
 import ContactSection from "./components/contact-section";
 import ButtonLink from "./components/button-link";
+import HomeHero from "./components/home-hero";
 
 export default async function Page() {
   const [settings, heroPost, testimonials] = await Promise.all([
@@ -38,7 +39,7 @@ export default async function Page() {
     <div className="bg-secondary text-primary">
       {/* Hero section */}
       <section className="relative h-screen flex items-center justify-center">
-        <Image
+        {/* <Image
           src="/heroImage.jpg"
           alt="Hero Image"
           fill
@@ -61,7 +62,8 @@ export default async function Page() {
           >
             Book Now
           </ButtonLink>
-        </div>
+        </div> */}
+        <HomeHero />
       </section>
 
       {/* About section */}
