@@ -48,16 +48,16 @@ const HomeHero = () => {
         onCanPlay={() => setIsVideoLoaded(true)}
       />
       <div className="absolute text-center max-w-3xl mx-auto text-primary-50 px-8 z-10">
-        <h1 className="text-3xl md:text-5xl font-bold leading-relaxed">
+        <h1 className="text-3xl md:text-5xl font-bold leading-relaxed ">
           Capturing moments and stillness
         </h1>
-        <p className="text-xl md:text-2xl mt-6 max-w-xl mx-auto">
+        <p className="text-xl md:text-2xl mt-8 max-w-xl mx-auto">
           We Bring Your Vision to Life with Expert Cinematography and
           Photography
         </p>
         <ButtonLink
           href="/contact"
-          className="mt-10 px-12 py-3 bg-accent text-primary-50 rounded-lg text-lg"
+          className="mt-12 px-12 py-3 bg-accent text-primary-50 rounded-lg text-lg"
         >
           Book Now
         </ButtonLink>
