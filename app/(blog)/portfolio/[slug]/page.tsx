@@ -131,9 +131,12 @@ export default async function PortfolioPage({ params }: Props) {
         <div className="py-16 px-8 bg-gradient-to-br from-secondary to-secondary-100 text-center">
           <Link
             href={`/services/${params.slug}`}
-            className="text-primary-50 text-center text-xl hover:underline glowing-text"
+            className="group text-primary-100 text-center text-xl hover:text-primary glowing-text"
           >
-            See {portfolio.title} packages &rarr;
+            See <span className="text-accent">{portfolio.title}</span> packages
+            <i className="font-semibold ml-1 transition-all transform -translate-x-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 duration-500 ease-linear">
+              &rarr;
+            </i>
           </Link>
         </div>
 

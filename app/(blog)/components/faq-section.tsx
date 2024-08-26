@@ -22,8 +22,8 @@ export const FAQsSection: React.FC<FAQsSectionProps> = ({ faqs }) => {
   return (
     <section className="py-16 px-8 bg-secondary">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold mb-16 text-center glowRed">
-          Frequently Asked Questions
+        <h2 className="text-2xl md:text-3xl font-bold mb-16 text-center">
+          Frequently Asked <span className="text-accent">Questions</span>
         </h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (

@@ -102,7 +102,19 @@ body {
     background-size: 100% 100%;
   }
 }
-.glowing-text {
+/* .glowing-text {
+  color: #f2f2f2;
+  transition: 0.3s;
+  animation: glowing-text 5000ms infinite;
+  text-shadow:
+    0 0 10px rgb(255, 53, 53),
+    0 0 20px rgb(255, 53, 53),
+    0 0 40px rgb(255, 53, 53),
+    0 0 80px rgb(230, 53, 53),
+    0 0 120px rgb(255, 53, 53),
+    0 0 110px rgb(255, 53, 53);
+} */
+.glowing {
   color: #f2f2f2;
   transition: 0.3s;
   animation: glowing-text 5000ms infinite;
