@@ -17,6 +17,7 @@ const ServiceCard = ({ title, href, Icon }: Props) => {
             <div className="flex flex-col justify-center items-center w-full h-full">
               <Icon className="text-4xl text-accent mb-4 mx-auto animate-spin-z-4" />
               <h3 className="text-xl font-semibold">{title}</h3>
+              <FaExternalLinkAlt className="absolute top-2 right-2 text-accent text-xl sm:hidden" />
             </div>
           </div>
           <div className="backface-hidden bg-[#595959] rounded-lg p-6 absolute w-full h-full inset-0 rotate-y-180">
