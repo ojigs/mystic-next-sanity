@@ -19,7 +19,7 @@ const ContactSection = ({ title, description }: Props) => {
         <p className="text-lg mb-8 text-primary-100">{description}</p>
         <Link
           href="/contact"
-          className="text-accent hover:text-white transition-colors duration-300 glowing-text"
+          className="text-primary font-extrabold sm:text-accent sm:hover:text-primary  transition-colors duration-300 glowing-text"
         >
           Contact Us &rarr;
         </Link>
