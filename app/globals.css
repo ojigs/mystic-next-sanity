@@ -114,7 +114,7 @@ body {
     0 0 120px rgb(255, 53, 53),
     0 0 110px rgb(255, 53, 53);
 } */
-.glowing {
+.glowing-text {
   color: #f2f2f2;
   transition: 0.3s;
   animation: glowing-text 5000ms infinite;
