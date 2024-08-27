@@ -32,7 +32,7 @@ const HomeHero = () => {
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         style={{ objectFit: "cover" }}
-        className={`transition-opacity duration-1000 ${isVideoLoaded ? "opacity-0" : "opacity-50"}`}
+        className={`transition-opacity duration-1000 ${isVideoLoaded ? "opacity-0" : "opacity-75"}`}
         priority
       />
       <video
@@ -42,7 +42,7 @@ const HomeHero = () => {
         muted
         playsInline
         className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ${
-          isVideoLoaded ? "opacity-50" : "opacity-0"
+          isVideoLoaded ? "opacity-75" : "opacity-0"
         }`}
         onCanPlay={() => setIsVideoLoaded(true)}
       />

@@ -1112,16 +1112,16 @@ export type RelatedPostsQueryResult = Array<{
 export type BlogPostSlugsResult = Array<{
   slug: Slug | null;
 }>;
-// Source: ./app/(blog)/portfolio/[slug]/page.tsx
-// Variable: portfolioSlugs
-// Query: *[_type == "post"]{slug}
-export type PortfolioSlugsResult = Array<{
-  slug: Slug | null;
-}>;
 // Source: ./app/(blog)/posts/[slug]/page.tsx
 // Variable: postSlugs
 // Query: *[_type == "post"]{slug}
 export type PostSlugsResult = Array<{
+  slug: Slug | null;
+}>;
+// Source: ./app/(blog)/portfolio/[slug]/page.tsx
+// Variable: portfolioSlugs
+// Query: *[_type == "post"]{slug}
+export type PortfolioSlugsResult = Array<{
   slug: Slug | null;
 }>;
 // Source: ./app/(blog)/services/[slug]/page.tsx
