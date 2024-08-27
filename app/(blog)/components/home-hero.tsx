@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import ButtonLink from "./button-link";
+import { motion } from "framer-motion";
 
 const HomeHero = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -25,17 +26,15 @@ const HomeHero = () => {
 
   return (
     <>
-      {!isVideoLoaded && (
-        <Image
-          src="/heroImage3.png"
-          alt="Hero Image"
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          style={{ objectFit: "cover" }}
-          className="opacity-50"
-          priority
-        />
-      )}
+      <Image
+        src="/heroImage3.png"
+        alt="Hero Image"
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        style={{ objectFit: "cover" }}
+        className={`transition-opacity duration-1000 ${isVideoLoaded ? "opacity-0" : "opacity-50"}`}
+        priority
+      />
       <video
         src="/bg-video.mp4"
         autoPlay
@@ -59,7 +58,7 @@ const HomeHero = () => {
           href="/contact"
           className="mt-12 px-12 py-3 bg-accent text-primary-50 rounded-lg text-lg"
         >
-          Book Now
+          <span className="animate-pulse">Book Now</span>
         </ButtonLink>
       </div>
       {/* <div

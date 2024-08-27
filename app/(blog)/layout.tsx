@@ -21,6 +21,7 @@ import { settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import Providers from "./components/progress-bar-provider";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await sanityFetch<SettingsQueryResult>({
@@ -107,12 +108,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} bg-white text-black`}>
       <body>
-        <section className="min-h-screen bg-secondary font-sans">
-          {draftMode().isEnabled && <AlertBanner />}
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </section>
+        <Providers>
+          <section className="min-h-screen bg-secondary font-sans">
+            {draftMode().isEnabled && <AlertBanner />}
+            <Header />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </section>
+        </Providers>
         {draftMode().isEnabled && <VisualEditing />}
         <SpeedInsights />
       </body>
