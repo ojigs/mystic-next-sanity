@@ -7,7 +7,7 @@ export default function ServicesPage() {
       title: "Wedding Photography",
       description:
         "We offer a custom-designed wedding photography service, ensuring a stunning and memorable experience. From pre-wedding shoots to post-wedding albums, we provide comprehensive coverage of your wedding celebration.",
-      imageSrc: "/wedding-4.webp",
+      imageSrc: "/wedding-4.jpg",
       link: "/services/weddings",
     },
     {

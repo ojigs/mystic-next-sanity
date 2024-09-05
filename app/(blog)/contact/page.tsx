@@ -6,6 +6,7 @@ import { IconType } from "react-icons/lib";
 import ButtonLink from "../components/button-link";
 import ServiceCard from "../components/service-contact-card";
 import TestimonialsSection from "../components/testimonial-section";
+import CalendlySection from "../components/calendly-section";
 
 interface Service {
   name: string;
@@ -15,20 +16,24 @@ interface Service {
 
 const ContactPage = () => {
   const services: Service[] = [
-    { name: "Wedding", link: "https://forms.gle/wedding", icon: FaCodeMerge },
+    {
+      name: "Wedding",
+      link: "https://forms.gle/QGiZBizR2uc2rh5U6",
+      icon: FaCodeMerge,
+    },
     {
       name: "Portrait",
-      link: "https://forms.gle/portrait",
+      link: "https://forms.gle/QGiZBizR2uc2rh5U6",
       icon: FaImagePortrait,
     },
     {
       name: "Branding",
-      link: "https://forms.gle/branding",
+      link: "https://forms.gle/QGiZBizR2uc2rh5U6",
       icon: SiBrandfolder,
     },
     {
       name: "Cinematography",
-      link: "https://forms.gle/cinematography",
+      link: "https://forms.gle/QGiZBizR2uc2rh5U6",
       icon: FaVideo,
     },
   ];
@@ -71,6 +76,9 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Calendly section */}
+      {/* <CalendlySection /> */}
 
       {/* Testimonial Section */}
       <TestimonialsSection />

@@ -28,25 +28,25 @@ interface Value {
 const AboutPage = () => {
   const teamMembers: TeamMember[] = [
     {
-      name: "John Doe",
+      name: "Silver Ukereti",
       image: "/team-member-1.jpg",
       role: "CEO",
-      facebook: "johndoe",
-      instagram: "johndoe",
+      facebook: "silver.ukereti",
+      instagram: "silverukereti",
     },
     {
-      name: "Jane Doe",
+      name: "Chi Babylet",
       image: "/team-member-2.jpg",
+      role: "Photographer",
+      facebook: "chi.babylet.79",
+      instagram: "chibabylet",
+    },
+    {
+      name: "Elena Oduduru",
+      image: "/team-member-3.jpg",
       role: "Photographer",
       facebook: "janedoe",
       instagram: "janedoe",
-    },
-    {
-      name: "Elena Woods",
-      image: "/team-member-3.jpg",
-      role: "Photographer",
-      facebook: "elenawoods",
-      instagram: "elenawoods",
     },
   ];
 
@@ -95,7 +95,7 @@ const AboutPage = () => {
             <div className="w-full md:w-1/2 mb-8 md:mb-0">
               <div className="relative w-full h-[400px] lg:h-[600px]">
                 <Image
-                  src="/our-story.webp"
+                  src="/mystic-story.jpg"
                   alt="Our Story"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -109,7 +109,7 @@ const AboutPage = () => {
                 Our Story
               </h2>
               <p className="mb-4 text-primary-100">
-                Our journey began in 2010 with a shared passion for capturing
+                Our journey began in 2011 with a shared passion for capturing
                 life&apos;s most precious moments through the art of photography
                 and videography. What started as a small team of two has now
                 grown into a vibrant collective of skilled professionals, each
@@ -236,7 +236,7 @@ const AboutPage = () => {
                   <div className="ml-4 text-primary-50">
                     <h3 className="font-bold text-lg mb-2">Founded</h3>
                     <p className="text-primary-100 mb-16">
-                      Our company was founded in 2010 with a vision to capture
+                      Our company was founded in 2011 with a vision to capture
                       life&apos;s moments.
                     </p>
                   </div>
@@ -295,7 +295,7 @@ const AboutPage = () => {
                   <div className="ml-4 text-primary-50">
                     <h3 className="font-bold text-lg mb-2">10th Anniversary</h3>
                     <p className="text-primary-100 mb-8">
-                      In 2020, we celebrated our 10th anniversary with a
+                      In 2021, we celebrated our 10th anniversary with a
                       portfolio showcase event.
                     </p>
                   </div>

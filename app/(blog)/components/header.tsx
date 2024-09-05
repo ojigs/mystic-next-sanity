@@ -1,12 +1,38 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const navbarRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    let lastScrollTop = 0;
+
+    const handleScroll = () => {
+      const scrollTop =
+        window.scrollY + 100 || document.documentElement.scrollTop;
+
+      if (navbarRef.current) {
+        if (scrollTop > lastScrollTop) {
+          navbarRef.current.style.transform = "translateY(-100%)";
+        } else {
+          navbarRef.current.style.transform = "translateY(0)";
+        }
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -17,7 +43,10 @@ const Header = () => {
   }, [pathname]);
 
   return (
-    <header className="bg-secondary text-primary shadow-xl z-50 fixed left-0 right-0 shadow-gray-600">
+    <header
+      ref={navbarRef}
+      className="bg-secondary text-primary shadow-xl z-50 fixed left-0 right-0 shadow-gray-600 transition-transform duration-300"
+    >
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         <div className="text-2xl font-bold">
           <Link href="/">Mystic Films</Link>

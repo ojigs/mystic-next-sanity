@@ -30,7 +30,7 @@ export default async function Page() {
   const weddingImages = [
     { src: "/wedding-2.jpg", alt: "Wedding ceremony" },
     { src: "/wedding-3.jpg", alt: "Wedding ceremony" },
-    { src: "/wedding-4.webp", alt: "Bridal bouquet" },
+    { src: "/wedding-4.jpg", alt: "Bridal bouquet" },
     { src: "/wedding-5.jpg", alt: "Bridal bouquet" },
     { src: "/wedding-6.jpg", alt: "Bridal bouquet" },
   ];
@@ -76,7 +76,7 @@ export default async function Page() {
               <div className="w-full h-full md:pt-3 md:pr-3 relative md:absolute md:bottom-0 md:left-0 md:w-3/4 md:h-3/4 z-10 md:z-30 bg-secondary">
                 <div className="relative w-full h-full">
                   <Image
-                    src="/pexels.jpeg"
+                    src="/pexels.jpg"
                     alt="Photographer in action"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -140,7 +140,7 @@ export default async function Page() {
             <div className="w-full md:w-2/3 mb-8 md:mb-0 md:pl-8">
               <div className="relative w-full h-[400px] lg:h-[600px]">
                 <Image
-                  src="/wedding-1.webp"
+                  src="/wedding-1.jpg"
                   alt="Featured wedding photo"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

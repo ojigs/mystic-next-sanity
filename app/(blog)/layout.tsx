@@ -112,7 +112,9 @@ export default function RootLayout({
           <section className="min-h-screen bg-secondary font-sans">
             {draftMode().isEnabled && <AlertBanner />}
             <Header />
-            <main className="min-h-screen">{children}</main>
+            <main className="min-h-screen" id="root">
+              {children}
+            </main>
             <Footer />
           </section>
         </Providers>
