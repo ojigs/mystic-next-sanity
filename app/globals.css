@@ -184,9 +184,39 @@ body {
   width: 740px;
   height: 460px;
 }
+.testimonial-bg-2 {
+  transform: scale(0.79, 0.79) translate(377.734px, -120.418px);
+  left: 401px;
+  top: 173px;
+  width: 840px;
+  height: 460px;
+}
+.testimonial-bg-3 {
+  transform: scale(0.79, 0.79) translate(-288.816px, -101.677px);
+  left: 909px;
+  top: 205px;
+  width: 350px;
+  height: 350px;
+}
 @media (min-width: 1024px) {
   .testimonial-bg-1 {
     transform: scale(1, 1) translate(0px, 0px);
     left: -516px;
+  }
+  .testimonial-bg-2 {
+    transform: scale(1, 1) translate(0px, 0px);
+    left: 901px;
+  }
+  .testimonial-bg-3 {
+    transform: scale(1, 1) translate(0px, 0px);
+    left: 809px;
+  }
+}
+@media (min-width: 1280px) {
+  .testimonial-bg-2 {
+    left: 1101px;
+  }
+  .testimonial-bg-3 {
+    left: 1009px;
   }
 }

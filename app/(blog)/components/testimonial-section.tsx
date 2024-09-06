@@ -26,16 +26,42 @@ export default async function TestimonialsSection() {
           </Suspense>
         </div>
       </div>
-      <div className="absolute testimonial-bg-1 overflow-hidden">
-        <div className="relative w-full h-full">
-          <Image
-            src="/testimonial-bg-1.jpeg"
-            alt=""
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            style={{ objectFit: "cover" }}
-            className=""
-          />
+      <div className="hidden lg:block">
+        <div className="absolute testimonial-bg-1 overflow-hidden">
+          <div className="relative w-full h-full">
+            <Image
+              src="/testimonial-bg-1.jpeg"
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              style={{ objectFit: "cover" }}
+              className=""
+            />
+          </div>
+        </div>
+        <div className="absolute testimonial-bg-2 overflow-hidden">
+          <div className="relative w-full h-full">
+            <Image
+              src="/testimonial-bg-2.jpg"
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              style={{ objectFit: "cover" }}
+              className=""
+            />
+          </div>
+        </div>
+        <div className="absolute testimonial-bg-3 overflow-hidden z-10 bg-secondary p-3">
+          <div className="relative w-full h-full">
+            <Image
+              src="/testimonial-bg-3.png"
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              style={{ objectFit: "cover" }}
+              className=""
+            />
+          </div>
         </div>
       </div>
     </section>

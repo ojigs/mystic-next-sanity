@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-secondary text-primary shadow-lg">
+    <header className="bg-secondary text-primary shadow-xl z-50 fixed left-0 right-0 shadow-gray-600">
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         <div className="text-2xl font-bold">
           <Link href="/">Mystic Films</Link>
