@@ -12,12 +12,9 @@
   - [Installation](#installation)
   - [Environment Variables](#environment-variables)
   - [Running the Project](#running-the-project)
-- [Folder Structure](#folder-structure)
 - [Usage](#usage)
 - [Deployment](#deployment)
 - [Integrations](#integrations)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## About the Project
@@ -58,4 +55,61 @@ Ensure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/ojigs/mystic-next-sanity.git
+
+2. **Navigate to the project directory:
+
+```bash
+cd your-repo
+```
+
+3. **Install dependencies:
+
+```bash
+npm install # or yarn install
+```
+
+### Environment Variables
+
+Create a `.env.local` file and add:
+
+```bash
+NEXT_PUBLIC_SANITY_PROJECT_ID=your-sanity-project-id
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2023-09-01
+NEXT_PUBLIC_CALENDLY_URL=your-calendly-url
+```
+
+### Running the Project
+
+To run the development server:
+
+```bash
+npm run dev # or yarn dev
+```
+
+Visit http://localhost:3000 to view the app.
+
+## Usage
+
+* **Blog Section:** Supports pagination and category filtering with animated transitions.
+* **Hero Section:** Video background that loops smoothly once fully loaded.
+* **Timeline Animation:** Shows a dynamic timeline of key milestones on the About page.
+* **Intercepting and Parallel Routes:** Enhance user flow and page transitions.
+
+## Deployment
+
+To deploy the project:
+1. Deploy the frontend using Vercel or Netlify.
+2. Deploy Sanity Studio separately (e.g., on Vercel).
+
+## Integrations
+
+* **Sanity.io:** Manages content for the blog and other dynamic sections.
+* **Calendly:** Integrated for scheduling.
+* **Next.js API Routes:** Handle server-side logic.
+
+## Contact
+
+* **Name:** Emmanuel Ojighoro
+* **Email:** awesomeemoj@gmail.com
