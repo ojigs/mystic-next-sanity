@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: http://mysticfilms.vercel.app
+
+# Sitemaps
+Sitemap: http://mysticfilms.vercel.app/sitemap.xml
