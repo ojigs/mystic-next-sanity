@@ -57,17 +57,15 @@ Ensure you have the following installed:
    ```bash
    git clone https://github.com/ojigs/mystic-next-sanity.git
 
-2. **Navigate to the project directory:
+2. **Navigate to the project directory:**
+   ```bash
+   cd your-repo
 
-```bash
-cd your-repo
-```
-
-3. **Install dependencies:
-
-```bash
-npm install # or yarn install
-```
+3. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
 
 ### Environment Variables
 
