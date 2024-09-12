@@ -72,9 +72,9 @@ Ensure you have the following installed:
 Create a `.env.local` file and add:
 
 ```bash
+SANITY_API_READ_TOKEN=your-sanity-api-read-token
 NEXT_PUBLIC_SANITY_PROJECT_ID=your-sanity-project-id
 NEXT_PUBLIC_SANITY_DATASET=production
-NEXT_PUBLIC_SANITY_API_VERSION=2023-09-01
 NEXT_PUBLIC_CALENDLY_URL=your-calendly-url
 ```
 
@@ -83,7 +83,9 @@ NEXT_PUBLIC_CALENDLY_URL=your-calendly-url
 To run the development server:
 
 ```bash
-npm run dev # or yarn dev
+npm run dev
+# or
+yarn dev
 ```
 
 Visit http://localhost:3000 to view the app.
