@@ -38,16 +38,32 @@ const Footer = () => {
           <div>
             <h4 className="text-base font-semibold mb-4">Follow Us</h4>
             <div className="flex space-x-4 justify-center md:justify-start">
-              <Link href="https://facebook.com" className="hover:text-accent">
+              <Link
+                href="https://www.facebook.com/share/6B7C7Lz3fmGSV4tu/?mibextid=LQQJ4d"
+                target="_blank"
+                className="hover:text-accent"
+              >
                 <FaFacebook className="text-blue-600 h-6 w-6" />
               </Link>
-              <Link href="https://instagram.com" className="hover:text-accent">
+              <Link
+                href="https://instagram.com/mysticfilmimageryevents"
+                target="_blank"
+                className="hover:text-accent"
+              >
                 <FaInstagram className="text-pink-500 h-6 w-6" />
               </Link>
-              <Link href="https://twitter.com" className="hover:text-accent">
+              <Link
+                href="https://twitter.com"
+                target="_blank"
+                className="hover:text-accent"
+              >
                 <FaTwitter className="text-blue-400 h-6 w-6" />
               </Link>
-              <Link href="https://youtube.com" className="hover:text-accent">
+              <Link
+                href="https://youtube.com"
+                target="_blank"
+                className="hover:text-accent"
+              >
                 <FaYoutube className="text-red-600 h-6 w-6" />
               </Link>
             </div>
@@ -56,15 +72,16 @@ const Footer = () => {
             <h4 className="text-base font-semibold mb-4">Contact Us</h4>
             <div className="flex flex-col space-y-2 justify-center md:justify-start">
               <address className="">
-                1234 Street Name, City, State, 56789
+                Flat 6, Wealth Plaza @ 20 Okpe Road, Sapele, Delta State,
+                Nigeria{" "}
               </address>
               <p className="">
-                <a href="mailto:info@mysticfilmworks.com">
-                  info@mysticfilmworks.com
+                <a href="mailto:mysticfilmworks2011@gmail.com">
+                  mysticfilmworks2011@gmail.com
                 </a>
               </p>
               <p className="">
-                <a href="tel:1234567890">(123) 456-7890</a>
+                <a href="tel:07032904251">07032904251</a>
               </p>
             </div>
           </div>
