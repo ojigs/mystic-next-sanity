@@ -94,25 +94,25 @@ const ContactPage = () => {
             <div className="flex items-center space-x-4">
               <FaEnvelope className="text-2xl text-accent" />
               <Link
-                href="mailto:info@example.com"
+                href="mailto:mysticfilmworks2011@gmail.com"
                 className="text-primary-100 hover:underline"
               >
-                info@mysticfilmworks.com
+                mysticfilmworks2011@gmail.com
               </Link>
             </div>
             <div className="flex items-center space-x-4">
               <FaPhone className="text-2xl text-accent" />
               <Link
-                href="tel:+1234567890"
+                href="tel:+2347032904251"
                 className="text-primary-100 hover:underline"
               >
-                +1234567890
+                07032904251
               </Link>
             </div>
             <div className="flex items-center space-x-4">
               <FaFacebook className="text-2xl text-accent" />
               <Link
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/6B7C7Lz3fmGSV4tu/?mibextid=LQQJ4d"
                 className="text-primary-100 hover:underline"
                 target="_blank"
               >
@@ -122,7 +122,7 @@ const ContactPage = () => {
             <div className="flex items-center space-x-4">
               <FaInstagram className="text-2xl text-accent" />
               <Link
-                href="https://instagram.com"
+                href="https://instagram.com/mysticfilmimageryevents"
                 className="text-primary-100 hover:underline"
                 target="_blank"
               >
