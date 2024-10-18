@@ -58,7 +58,7 @@ const HomeHero = () => {
           href="/contact"
           className="mt-12 px-12 py-3 bg-accent text-primary-50 rounded-lg text-lg"
         >
-          <span className="animate-pulse">Book Now</span>
+          <span className="">Book Now</span>
         </ButtonLink>
       </div>
       {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-secondary to-transparent pt-[50%] md:pt-[10%]" /> */}
