@@ -122,7 +122,7 @@ export default async function Page() {
               sets us apart in the industry.
             </p>
             <ButtonLink href={"/about-us"} className="bg-accent">
-              Learn More
+              Discover More
             </ButtonLink>
           </div>
         </div>

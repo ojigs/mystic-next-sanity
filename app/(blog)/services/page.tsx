@@ -9,6 +9,7 @@ export default function ServicesPage() {
         "We offer a custom-designed wedding photography service, ensuring a stunning and memorable experience. From pre-wedding shoots to post-wedding albums, we provide comprehensive coverage of your wedding celebration.",
       imageSrc: "/wedding-4.jpg",
       link: "/services/weddings",
+      desc: "Wedding"
     },
     {
       title: "Portrait Photography",
@@ -17,6 +18,7 @@ export default function ServicesPage() {
       imageSrc: "/portrait.jpeg",
       link: "/services/portraits",
       reverse: true,
+      desc: "Portrait"
     },
     {
       title: "Branding Photography",
@@ -24,6 +26,7 @@ export default function ServicesPage() {
         "We create stunning visuals to elevate your brand identity, capturing the essence of your brand. Our high-resolution images are perfect for use in marketing materials, social media, and your website.",
       imageSrc: "/brand.jpg",
       link: "/services/branding",
+      desc: "Branding"
     },
     {
       title: "Cinematography",
@@ -32,6 +35,7 @@ export default function ServicesPage() {
       imageSrc: "/cinematography.jpg",
       link: "/services/cinematography",
       reverse: true,
+      desc: "Cinematography"
     },
   ];
 
@@ -61,6 +65,7 @@ export default function ServicesPage() {
               imageSrc={story.imageSrc}
               link={story.link}
               reverse={story.reverse}
+              desc={story.desc}
             />
           ))}
         </div>

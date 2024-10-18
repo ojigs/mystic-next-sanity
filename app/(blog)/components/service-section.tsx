@@ -41,7 +41,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           href={link}
           className="bg-secondary-100 py-3 text-center hover:text-primary-100 w-full"
         >
-          Learn More
+          {title} Services
         </ButtonLink>
       </div>
     </div>

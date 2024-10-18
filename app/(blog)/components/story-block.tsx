@@ -10,6 +10,7 @@ interface StoryBlockProps {
   imageSrc: string;
   link: string;
   reverse?: boolean;
+  desc?: string; // "Wedding" | "Portrait" | "Branding" | "Cinematography"
 }
 
 export default function StoryBlock({
@@ -18,6 +19,7 @@ export default function StoryBlock({
   imageSrc,
   link,
   reverse = false,
+  desc
 }: StoryBlockProps) {
   return (
     <motion.div
@@ -42,7 +44,7 @@ export default function StoryBlock({
         <h2 className="text-3xl font-bold mb-4">{title}</h2>
         <p className="text-lg text-primary-100 mb-6">{description}</p>
         <ButtonLink href={link} className=" bg-accent px-8">
-          View Packages
+          View {desc} Packages
         </ButtonLink>
       </div>
     </motion.div>
