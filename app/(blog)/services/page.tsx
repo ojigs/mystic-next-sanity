@@ -35,7 +35,7 @@ export default function ServicesPage() {
       imageSrc: "/cinematography.jpg",
       link: "/services/cinematography",
       reverse: true,
-      desc: "Cinematography"
+      desc: "Cinema"
     },
   ];
 
