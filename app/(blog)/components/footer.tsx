@@ -41,6 +41,8 @@ const Footer = () => {
               <Link
                 href="https://www.facebook.com/share/6B7C7Lz3fmGSV4tu/?mibextid=LQQJ4d"
                 target="_blank"
+                title="Facebook"
+                aria-label="Facebook"
                 className="hover:text-accent"
               >
                 <FaFacebook className="text-blue-600 h-6 w-6" />
@@ -48,11 +50,13 @@ const Footer = () => {
               <Link
                 href="https://instagram.com/mysticfilmimageryevents"
                 target="_blank"
+                title="Instagram"
+                aria-label="Instagram"
                 className="hover:text-accent"
               >
                 <FaInstagram className="text-pink-500 h-6 w-6" />
               </Link>
-              <Link
+              {/* <Link
                 href="https://twitter.com"
                 target="_blank"
                 className="hover:text-accent"
@@ -65,7 +69,7 @@ const Footer = () => {
                 className="hover:text-accent"
               >
                 <FaYoutube className="text-red-600 h-6 w-6" />
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div>
