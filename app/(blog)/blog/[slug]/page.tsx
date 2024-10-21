@@ -18,7 +18,7 @@ type Props = {
   params: { slug: string };
 };
 
-const blogPostSlugs = groq`*[_type == "post"]{slug}`;
+const blogPostSlugs = groq`*[_type == "blogPost"]{slug}`;
 
 export async function generateStaticParams() {
   const params = await sanityFetch<BlogPostSlugsResult>({
