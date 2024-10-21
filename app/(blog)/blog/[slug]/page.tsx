@@ -68,14 +68,14 @@ export default async function BlogPostPage({
     <div className="bg-secondary text-primary">
       <article className="max-w-4xl mx-auto px-8 pt-24">
         {/* Hero Section */}
-        <div className="relative h-96 mb-8 overflow-clip">
+        <div className="relative min-h-96 mb-8 overflow-clip">
           <CoverImage
             image={post.coverImage}
             className="h-full bg-cover"
             priority
           />
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-secondary to-transparent p-6">
-            <h1 className="text-4xl font-bold text-primary mb-2">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-2 break-words hyphens-auto">
               {post.title}
             </h1>
             <div className="text-primary opacity-75">

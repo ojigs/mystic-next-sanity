@@ -831,7 +831,7 @@ export type TestimonialsQueryResult = Array<{
   } | null;
 }>;
 // Variable: blogFeatureQuery
-// Query: *[_type == "blogPost"] | order(_createdAt desc) {  _id,  "title": coalesce(title, "Untitled"),  "slug": slug.current,  excerpt,  coverImage,  date,"author": select(  defined(author) => author->{"name": coalesce(name, "Anonymous"), picture},  {"name": "Anonymous"})}
+// Query: *[_type == "blogPost"] | order(_createdAt desc) [0...2] {  _id,  "title": coalesce(title, "Untitled"),  "slug": slug.current,  excerpt,  coverImage,  date,"author": select(  defined(author) => author->{"name": coalesce(name, "Anonymous"), picture},  {"name": "Anonymous"})}
 export type BlogFeatureQueryResult = Array<{
   _id: string;
   title: string | "Untitled";
