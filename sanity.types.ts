@@ -1088,17 +1088,23 @@ export type BlogPostQueryResult = {
   }> | null;
 } | null;
 // Variable: relatedPostsQuery
-// Query: *[_type == "blogPost" && count(categories[@._ref in $categories]) > 0 && _id != $currentPostId] | order(date desc) [0...2] {  _id,  title,  slug,  excerpt,  coverImage {    asset-> {      url    },    alt  },  categories[]-> {    _id,    title,    value  }}
+// Query: *[_type == "blogPost" && count(categories[@._ref in $categories]) > 0 && _id != $currentPostId] | order(date desc) [0...2] {  _id,  title,  slug,  excerpt,  coverImage,  categories[]-> {    _id,    title,    value  }}
 export type RelatedPostsQueryResult = Array<{
   _id: string;
   title: string | null;
   slug: Slug | null;
   excerpt: string | null;
   coverImage: {
-    asset: {
-      url: string | null;
-    } | null;
-    alt: string | null;
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
   } | null;
   categories: Array<{
     _id: string;
@@ -1108,7 +1114,7 @@ export type RelatedPostsQueryResult = Array<{
 }>;
 // Source: ./app/(blog)/blog/[slug]/page.tsx
 // Variable: blogPostSlugs
-// Query: *[_type == "post"]{slug}
+// Query: *[_type == "blogPost"]{slug}
 export type BlogPostSlugsResult = Array<{
   slug: Slug | null;
 }>;

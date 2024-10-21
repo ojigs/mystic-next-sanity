@@ -22,16 +22,16 @@ export default async function RelatedPosts({
   return (
     <>
       {relatedPosts && relatedPosts.length > 0 && (
-        <div className="mt-12">
+        <div className="mt-12 mb-8">
           <h2 className="text-2xl font-bold mb-4">Related Posts</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {relatedPosts.map((post) => (
               <Link
-                href={`/blog/${post.slug}`}
+                href={`/blog/${post.slug?.current}`}
                 key={post._id}
                 className="block"
               >
-                <div className="border rounded-lg overflow-hidden">
+                <div className="bg-primary-100 text-secondary-100 shadow-accent/40 shadow-lg rounded-lg overflow-hidden">
                   <Image
                     src={
                       urlForImage(post.coverImage)

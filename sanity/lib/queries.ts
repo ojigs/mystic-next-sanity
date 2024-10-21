@@ -111,12 +111,7 @@ export const relatedPostsQuery = groq`
   title,
   slug,
   excerpt,
-  coverImage {
-    asset-> {
-      url
-    },
-    alt
-  },
+  coverImage,
   categories[]-> {
     _id,
     title,
