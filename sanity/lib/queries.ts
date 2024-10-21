@@ -34,7 +34,7 @@ export const testimonialsQuery = groq`*[_type == "testimonial"] | order(_created
   clientImage
 }`;
 
-export const blogFeatureQuery = groq`*[_type == "blogPost"] | order(_createdAt desc) {
+export const blogFeatureQuery = groq`*[_type == "blogPost"] | order(_createdAt desc) [0...2] {
   _id,
   "title": coalesce(title, "Untitled"),
   "slug": slug.current,
