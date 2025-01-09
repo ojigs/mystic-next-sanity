@@ -3,7 +3,8 @@ User-agent: *
 Allow: /
 
 # Host
-Host: http://mysticfilms.vercel.app
+Host: http://localhost:3000
 
 # Sitemaps
-Sitemap: http://mysticfilms.vercel.app/sitemap.xml
+Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: http://localhost:3000/server-sitemap-index.xml

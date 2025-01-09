@@ -4,14 +4,14 @@ import { createClient } from "next-sanity";
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
-  apiVersion: "2024-01-09",
+  apiVersion: "2024-02-28",
   useCdn: false,
 });
 
 export async function GET(request: Request) {
   try {
     // Fetch all blog posts from Sanity
-    const posts = await client.fetch(`*[_type == "post"]{
+    const posts = await client.fetch(`*[_type == "blogPost"]{
       "slug": slug.current,
       _updatedAt
     }`);
