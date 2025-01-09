@@ -2,5 +2,8 @@
 module.exports = {
   siteUrl: process.env.SITE_URL || "https://mysticfilms.vercel.app",
   generateRobotsTxt: true,
-  changefreq: "weekly",
+  exclude: ["/blog/*"],
+  robotsTxtOptions: {
+    additionalSitemaps: [`${process.env.SITE_URL}/server-sitemap-index.xml`],
+  },
 };
