@@ -13,6 +13,8 @@ import {
   type PortableTextComponents,
   type PortableTextBlock,
 } from "next-sanity";
+import Image from "next/image";
+import { urlForImage } from "@/sanity/lib/utils";
 
 export default function CustomPortableText({
   className,
@@ -36,6 +38,29 @@ export default function CustomPortableText({
           <a href={value?.href} rel="noreferrer noopener">
             {children}
           </a>
+        );
+      },
+    },
+    types: {
+      image: ({ value }) => {
+        const imageUrl = urlForImage(value)?.url();
+        if (!imageUrl) return null;
+
+        return (
+          <div className="my-4">
+            <Image
+              src={imageUrl}
+              alt={value.alt || "Blog image"}
+              width={800}
+              height={600}
+              className="rounded-lg"
+            />
+            {value.alt && (
+              <p className="text-sm text-center text-primary-50 mt-2">
+                {value.alt}
+              </p>
+            )}
+          </div>
         );
       },
     },
